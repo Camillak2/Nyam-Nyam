@@ -12,24 +12,17 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
-using Nyam_Nyam.Pages;
 
-namespace Nyam_Nyam
+namespace Nyam_Nyam.Pages
 {
     /// <summary>
-    /// Логика взаимодействия для MainWindow.xaml
+    /// Логика взаимодействия для DishesPage.xaml
     /// </summary>
-    public partial class MainWindow : Window
+    public partial class DishesPage : Page
     {
-        public MainWindow()
+        public DishesPage()
         {
             InitializeComponent();
-            NaFr.Content = new DishesPage();
-        }
-
-        private void HyperlinkDishes_Click(object sender, RoutedEventArgs e)
-        {
-            NavigationService.Naig
         }
     }
 }

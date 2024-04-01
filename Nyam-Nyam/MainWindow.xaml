@@ -5,8 +5,53 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Nyam_Nyam"
         mc:Ignorable="d"
-        Title="MainWindow" Height="450" Width="800">
+        Title="Recipes" Height="450" Width="800">
     <Grid>
-        
+        <Grid.RowDefinitions>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition/>
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="100"/>
+            <ColumnDefinition Width="700"/>
+        </Grid.ColumnDefinitions>
+
+        <Grid Grid.Column="0">
+            <TextBlock Text="Dishes"
+                   Grid.Column="0"
+                   Grid.Row="0"
+                   Margin="17 5 0 0"
+                   HorizontalAlignment="Left"
+                   VerticalAlignment="Top">
+            <Hyperlink Click="HyperlinkDishes_Click"/>
+            </TextBlock>
+
+            <TextBlock Text="Ingredients"
+                   Grid.Column="0"
+                   Grid.Row="0"
+                   Margin="17 5 0 0"
+                   HorizontalAlignment="Left"
+                   VerticalAlignment="Center">
+            <Hyperlink Click="HyperlinkIngredients_Click"/>
+            </TextBlock>
+
+            <TextBlock Text="Orders"
+                   Grid.Column="0"
+                   Grid.Row="0"
+                   Margin="17 0 0 0"
+                   HorizontalAlignment="Left"
+                   VerticalAlignment="Bottom">
+            <Hyperlink Click="HyperlinkOrders_Click"/>
+            </TextBlock>
+        </Grid>
+
+        <Frame x:Name="NaFr"
+               Grid.Column="1"
+               NavigationUIVisibility="Hidden"/>
     </Grid>
 </Window>
