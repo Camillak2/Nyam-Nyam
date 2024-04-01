@@ -5,10 +5,128 @@
       xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
       xmlns:local="clr-namespace:Nyam_Nyam.Pages"
       mc:Ignorable="d" 
-      d:DesignHeight="450" d:DesignWidth="800"
+      d:DesignHeight="450" d:DesignWidth="700"
       Title="DishesPage">
 
     <Grid>
-        
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition/>
+            <ColumnDefinition/>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="100"/>
+            <RowDefinition Height="350"/>
+        </Grid.RowDefinitions>
+
+        <TextBlock Text="List of Dishes"
+                   Style="{StaticResource Title}"
+                   Grid.Column="0"
+                   Grid.Row="0"
+                   Margin="10 0 0 0"
+                   HorizontalAlignment="Left"
+                   VerticalAlignment="Top"/>
+
+        <StackPanel Grid.Column="0"
+                    Grid.Row="0"
+                    Margin="10 40 0 0"
+                    Height="28"
+                    VerticalAlignment="Top"
+                    Orientation="Horizontal">
+            <TextBlock Text="Category:"
+                   Margin="0 0 10 0"
+                   HorizontalAlignment="Left"
+                   VerticalAlignment="Center"/>
+            <ComboBox x:Name="CategoryCB"
+                   Width="110"
+                   Height="28"
+                   HorizontalAlignment="Left"
+                   ItemsSource="{Binding categories}">
+                <ComboBox.ItemTemplate>
+                    <DataTemplate>
+                        <TextBlock Text="{Binding Name}"/>
+                    </DataTemplate>
+                </ComboBox.ItemTemplate>
+            </ComboBox>
+        </StackPanel>
+
+        <StackPanel Grid.Column="1"
+                    Grid.Row="0"
+                    Margin="10 40 0 0"
+                    Height="30"
+                    VerticalAlignment="Top"
+                    Orientation="Horizontal"
+                    Grid.ColumnSpan="2">
+            <TextBlock Text="Name:"
+                    Margin="0 0 10 0"
+                    HorizontalAlignment="Left"
+                    VerticalAlignment="Center"/>
+            <TextBox x:Name="SearchTB"
+                    Width="200"
+                    Height="28"
+                    HorizontalAlignment="Left"/>
+        </StackPanel>
+
+        <CheckBox
+            Grid.Column="0"
+            Grid.Row="0"
+            Margin="10 80 0 0"
+            HorizontalAlignment="Left"
+            VerticalAlignment="Top"
+            Content="Show only dishes with aailable ingredients"/>
+
+        <StackPanel Grid.Column="1"
+                    Grid.Row="0"
+                    Margin="10 70 0 0"
+                    Height="30"
+                    VerticalAlignment="Top"
+                    Orientation="Horizontal"
+                    Grid.ColumnSpan="2">
+            <TextBlock Text="Price:"
+               Margin="0 0 10 0"
+               HorizontalAlignment="Left"
+               VerticalAlignment="Center"/>
+            <Slider Name="RectangleHeight"
+                    Width="100"
+                    Orientation="Horizontal"
+                    HorizontalAlignment="Left"
+                    VerticalAlignment="Bottom"
+                    Value="50"
+                    Minimum="0"
+                    Maximum="200" 
+                    SmallChange="1"
+                    LargeChange="10"
+                    TickPlacement="BottomRight"
+                    TickFrequency="10"/>
+        </StackPanel>
+
+        <StackPanel Grid.Column="0"
+                    Grid.ColumnSpan="2"
+                    Grid.Row="1"
+                     Margin="10 0 0 0">
+            <ListView x:Name="DishesLV"
+                ItemsSource="{Binding Dish}">
+                <ListView.ItemsPanel>
+                    <ItemsPanelTemplate>
+                        <WrapPanel Orientation="Horizontal" />
+                    </ItemsPanelTemplate>
+                </ListView.ItemsPanel>
+
+                <ListView.View>
+                    <GridView>
+                        <GridViewColumn Width="200">
+                            <GridViewColumn.CellTemplate>
+                                <DataTemplate>
+                                    <StackPanel>
+                                        <Image Source="{Binding Image}" Width="100" Height="100"/>
+                                        <TextBlock Text="{Binding Name}" HorizontalAlignment="Center"/>
+                                        <TextBlock Text="{Binding Price}" HorizontalAlignment="Center"/>
+                                    </StackPanel>
+                                </DataTemplate>
+                            </GridViewColumn.CellTemplate>
+                        </GridViewColumn>
+                    </GridView>
+                </ListView.View>
+            </ListView>
+        </StackPanel>
     </Grid>
 </Page>

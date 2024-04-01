@@ -4,19 +4,15 @@
              xmlns:local="clr-namespace:Nyam_Nyam"
              StartupUri="MainWindow.xaml">
     <Application.Resources>
-        
+
         <Style TargetType="{x:Type Window}">
-            <Setter Property="Background" Value="#fed7c1" />
-            <Setter Property="FontFamily" Value="Comic Sans MS" />
+            <Setter Property="Background" Value="#fed7c1"/>
+            <Setter Property="FontFamily" Value="Comic Sans MS"/>
         </Style>
 
         <Style TargetType="{x:Type Page}">
-            <Setter Property="Background" Value="#fed7c1" />
-            <Setter Property="FontFamily" Value="Comic Sans MS" />
-        </Style>
-
-        <Style TargetType="Border" x:Key="BorderStyle">
-            <Setter Property="Background" Value="#d4adaa"/>
+            <Setter Property="Background" Value="#fed7c1"/>
+            <Setter Property="FontFamily" Value="Comic Sans MS"/>
         </Style>
 
         <Style TargetType="Button">
@@ -48,39 +44,6 @@
             <Setter Property="BorderBrush" Value="#9a7673"/>
             <Setter Property="Foreground" Value="#FF976C68"/>
             <Setter Property="BorderThickness" Value="2"/>
-            <Setter Property="Template">
-                <Setter.Value>
-                    <ControlTemplate TargetType="TextBox">
-                        <Border Background="{TemplateBinding Background}"
-                            BorderBrush="{TemplateBinding BorderBrush}"
-                            BorderThickness="{TemplateBinding BorderThickness}"
-                            CornerRadius="20">
-                            <ScrollViewer x:Name="PART_ContentHost" />
-                        </Border>
-                    </ControlTemplate>
-                </Setter.Value>
-            </Setter>
-        </Style>
-
-        <Style TargetType="PasswordBox">
-            <Setter Property="FontSize" Value="20"/>
-            <Setter Property="FontFamily" Value="Comic Sans MS"/>
-            <Setter Property="Background" Value="#d4adaa"/>
-            <Setter Property="BorderBrush" Value="#9a7673"/>
-            <Setter Property="Foreground" Value="#FF976C68"/>
-            <Setter Property="BorderThickness" Value="2"/>
-            <Setter Property="Template">
-                <Setter.Value>
-                    <ControlTemplate TargetType="PasswordBox">
-                        <Border Background="{TemplateBinding Background}"
-                            BorderBrush="{TemplateBinding BorderBrush}"
-                            BorderThickness="{TemplateBinding BorderThickness}"
-                            CornerRadius="20">
-                            <ScrollViewer x:Name="PART_ContentHost" />
-                        </Border>
-                    </ControlTemplate>
-                </Setter.Value>
-            </Setter>
         </Style>
 
         <Style TargetType="TextBlock">
@@ -89,7 +52,13 @@
             <Setter Property="Foreground" Value="#FF976C68"/>
         </Style>
 
-        <Style TargetType="DatePicker">
+        <Style TargetType="TextBlock" x:Key="Title">
+            <Setter Property="FontSize" Value="25"/>
+            <Setter Property="FontFamily" Value="Comic Sans MS"/>
+            <Setter Property="Foreground" Value="#fdb249"/>
+        </Style>
+
+        <Style TargetType="TextBlock" x:Key="Subtitle">
             <Setter Property="FontSize" Value="30"/>
             <Setter Property="FontFamily" Value="Comic Sans MS"/>
             <Setter Property="Foreground" Value="#FF976C68"/>

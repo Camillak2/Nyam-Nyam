@@ -9,6 +9,6 @@
       Title="IngredientsPage">
 
     <Grid>
-        
+        <TextBlock Text="bbb"/>
     </Grid>
 </Page>

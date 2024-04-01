@@ -24,12 +24,24 @@ namespace Nyam_Nyam
         public MainWindow()
         {
             InitializeComponent();
-            NaFr.Content = new DishesPage();
         }
 
-        private void HyperlinkDishes_Click(object sender, RoutedEventArgs e)
+        private void Hyperlink_RequestNavigate(object sender, System.Windows.Navigation.RequestNavigateEventArgs e)
         {
-            NavigationService.Naig
+            string pageUri = e.Uri.OriginalString;
+
+            switch (pageUri)
+            {
+                case "DishesPage":
+                    NaFr.Navigate(new Uri("Pages/DishesPage.xaml", UriKind.Relative));
+                    break;
+                case "IngredientsPage":
+                    NaFr.Navigate(new Uri("Pages/IngredientsPage.xaml", UriKind.Relative));
+                    break;
+                default:
+                    NaFr.Navigate(new Uri("Pages/OrdersPage.xaml", UriKind.Relative));
+                    break;
+            }
         }
     }
 }

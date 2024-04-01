@@ -13,45 +13,50 @@
             <RowDefinition/>
             <RowDefinition/>
             <RowDefinition/>
-            <RowDefinition/>
-            <RowDefinition/>
         </Grid.RowDefinitions>
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="100"/>
             <ColumnDefinition Width="700"/>
         </Grid.ColumnDefinitions>
 
-        <Grid Grid.Column="0">
-            <TextBlock Text="Dishes"
-                   Grid.Column="0"
-                   Grid.Row="0"
-                   Margin="17 5 0 0"
-                   HorizontalAlignment="Left"
-                   VerticalAlignment="Top">
-            <Hyperlink Click="HyperlinkDishes_Click"/>
+        <Border BorderBrush="Black"
+                BorderThickness="1"
+                Grid.Column="0"
+                Grid.RowSpan="5"
+                Height="410"
+                VerticalAlignment="Top">
+            <Grid Grid.Column="0">
+            <TextBlock HorizontalAlignment="Left"
+                       VerticalAlignment="Top"
+                       Margin="15 10 0 0">
+                <Hyperlink NavigateUri="DishesPage"
+                           RequestNavigate="Hyperlink_RequestNavigate">Dishes</Hyperlink>
             </TextBlock>
-
-            <TextBlock Text="Ingredients"
-                   Grid.Column="0"
-                   Grid.Row="0"
-                   Margin="17 5 0 0"
-                   HorizontalAlignment="Left"
-                   VerticalAlignment="Center">
-            <Hyperlink Click="HyperlinkIngredients_Click"/>
+            <TextBlock HorizontalAlignment="Left"
+                       VerticalAlignment="Top"
+                       Margin="15 40 0 0">
+                <Hyperlink NavigateUri="IngredientsPage"
+                           RequestNavigate="Hyperlink_RequestNavigate">Ingredients</Hyperlink>
             </TextBlock>
-
-            <TextBlock Text="Orders"
-                   Grid.Column="0"
-                   Grid.Row="0"
-                   Margin="17 0 0 0"
-                   HorizontalAlignment="Left"
-                   VerticalAlignment="Bottom">
-            <Hyperlink Click="HyperlinkOrders_Click"/>
+            <TextBlock HorizontalAlignment="Left"
+                       VerticalAlignment="Top"
+                       Margin="15 70 0 0">
+                <Hyperlink NavigateUri="OrdersPage"
+                           RequestNavigate="Hyperlink_RequestNavigate">Orders</Hyperlink>
             </TextBlock>
-        </Grid>
+            </Grid>
+        </Border>
 
-        <Frame x:Name="NaFr"
+        <Border BorderBrush="Black"
+                VerticalAlignment="Top"
+                BorderThickness="1"
+                Grid.RowSpan="5"
+                Grid.Column="1"
+                Height="410">
+            <Frame x:Name="NaFr"
                Grid.Column="1"
+               Grid.RowSpan="5"
                NavigationUIVisibility="Hidden"/>
+        </Border>
     </Grid>
 </Window>

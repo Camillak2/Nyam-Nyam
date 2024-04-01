@@ -12,6 +12,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using Nyam_Nyam.DB;
 
 namespace Nyam_Nyam.Pages
 {
@@ -20,9 +21,22 @@ namespace Nyam_Nyam.Pages
     /// </summary>
     public partial class DishesPage : Page
     {
+        public static List<Category> categories { get; set; }
+        public static List<Dish> dishes { get; set; }
+
+
         public DishesPage()
         {
             InitializeComponent();
+            categories = DBConnection.nyamNyam.Category.ToList();
+            dishes = DBConnection.nyamNyam.Dish.ToList();
+            this.DataContext = this;
+            Refresh();
+        }
+
+        private void Refresh()
+        {
+            //DishesLV.ItemsSource = DBConnection.nyamNyam.Dish.ToList();
         }
     }
 }
