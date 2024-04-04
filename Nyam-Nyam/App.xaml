@@ -49,13 +49,21 @@
         </Style>
 
         <Style TargetType="TextBlock" x:Key="Subtitle">
-            <Setter Property="FontSize" Value="30"/>
+            <Setter Property="FontSize" Value="18"/>
             <Setter Property="FontFamily" Value="Comic Sans MS"/>
             <Setter Property="Foreground" Value="#FF976C68"/>
         </Style>
 
         <Style TargetType="ListView">
-            <Setter Property="Background" Value="#eed4fe"/>
+            <Setter Property="FontSize" Value="14"/>
+        </Style>
+
+        <Style TargetType="ComboBox">
+            <Setter Property="FontSize" Value="20"/>
+            <Setter Property="FontFamily" Value="Comic Sans MS"/>
+            <Setter Property="Background" Value="#d4adaa"/>
+            <Setter Property="BorderBrush" Value="#9a7673"/>
+            <Setter Property="Foreground" Value="#FF976C68"/>
         </Style>
 
     </Application.Resources>

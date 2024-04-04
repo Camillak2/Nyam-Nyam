@@ -23,6 +23,7 @@ namespace Nyam_Nyam.Pages
     {
         public static List<Category> categories { get; set; }
         public static List<Dish> dishes { get; set; }
+        public static Dish dish { get; set; }
 
 
         public DishesPage()
@@ -37,6 +38,13 @@ namespace Nyam_Nyam.Pages
         private void Refresh()
         {
             DishesLV.ItemsSource = DBConnection.nyamNyam.Dish.ToList();
+        }
+
+        private void DishesLV_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            if ()
+            DBConnection.selectedDish = DishesLV.SelectedItem as Dish;
+            NavigationService.Navigate(new RecipeForSelectedDishPage(dish));
         }
     }
 }

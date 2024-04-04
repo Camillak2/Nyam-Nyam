@@ -9,5 +9,7 @@ namespace Nyam_Nyam.DB
     internal class DBConnection
     {
         public static NyamNyam_SagdievaEntities nyamNyam = new NyamNyam_SagdievaEntities();
+
+        public static Dish selectedDish;
     }
 }
