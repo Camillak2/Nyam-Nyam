@@ -36,7 +36,7 @@ namespace Nyam_Nyam.Pages
 
         private void Refresh()
         {
-            //DishesLV.ItemsSource = DBConnection.nyamNyam.Dish.ToList();
+            DishesLV.ItemsSource = DBConnection.nyamNyam.Dish.ToList();
         }
     }
 }

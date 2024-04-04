@@ -5,6 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Nyam_Nyam"
         mc:Ignorable="d"
+        Loaded="Window_Loaded"
         Title="Recipes" Height="450" Width="800">
     <Grid>
         <Grid.RowDefinitions>
@@ -24,23 +25,25 @@
                 Grid.Column="0"
                 Grid.RowSpan="5"
                 Height="410"
+                Width="99"
+                HorizontalAlignment="Right"
                 VerticalAlignment="Top">
             <Grid Grid.Column="0">
             <TextBlock HorizontalAlignment="Left"
                        VerticalAlignment="Top"
-                       Margin="15 10 0 0">
+                       Margin="5 10 0 0">
                 <Hyperlink NavigateUri="DishesPage"
                            RequestNavigate="Hyperlink_RequestNavigate">Dishes</Hyperlink>
             </TextBlock>
             <TextBlock HorizontalAlignment="Left"
                        VerticalAlignment="Top"
-                       Margin="15 40 0 0">
+                       Margin="5 40 0 0">
                 <Hyperlink NavigateUri="IngredientsPage"
                            RequestNavigate="Hyperlink_RequestNavigate">Ingredients</Hyperlink>
             </TextBlock>
             <TextBlock HorizontalAlignment="Left"
                        VerticalAlignment="Top"
-                       Margin="15 70 0 0">
+                       Margin="5 70 0 0">
                 <Hyperlink NavigateUri="OrdersPage"
                            RequestNavigate="Hyperlink_RequestNavigate">Orders</Hyperlink>
             </TextBlock>
@@ -52,7 +55,9 @@
                 BorderThickness="1"
                 Grid.RowSpan="5"
                 Grid.Column="1"
-                Height="410">
+                Height="410"
+                Width="686"
+                HorizontalAlignment="Left">
             <Frame x:Name="NaFr"
                Grid.Column="1"
                Grid.RowSpan="5"

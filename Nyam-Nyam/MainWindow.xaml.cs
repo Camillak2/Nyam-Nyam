@@ -43,5 +43,13 @@ namespace Nyam_Nyam
                     break;
             }
         }
+
+        private void Window_Loaded(object sender, RoutedEventArgs e)
+        {
+            byte transparency = 300;
+            Color color = Color.FromArgb(transparency, 254, 215, 193);
+            SolidColorBrush transparentBrush = new SolidColorBrush(color);
+            this.Background = transparentBrush;
+        }
     }
 }

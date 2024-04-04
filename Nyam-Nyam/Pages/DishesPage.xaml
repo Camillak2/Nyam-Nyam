@@ -99,11 +99,55 @@
                     TickFrequency="10"/>
         </StackPanel>
 
-        <StackPanel Grid.Column="0"
+
+        <ListView x:Name="DishesLV"
+            Grid.ColumnSpan="2"
+            Grid.Row="1"
+            Margin="10 0 10 0"
+            Width="625"
+            Height="300"
+            ScrollViewer.HorizontalScrollBarVisibility="Disabled"
+            ScrollViewer.VerticalScrollBarVisibility="Auto"
+            ItemsSource="{Binding Dish}">
+            <ListView.Background>
+                <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                    <GradientStop Color="#7FFED7B1"/>
+                    <GradientStop Color="#7FFDB249" Offset="1"/>
+                </LinearGradientBrush>
+            </ListView.Background>
+            <ListView.ItemsPanel>
+                <ItemsPanelTemplate>
+                    <WrapPanel Orientation="Horizontal" VerticalAlignment="Top"/>
+                </ItemsPanelTemplate>
+            </ListView.ItemsPanel>
+
+            <ListView.ItemTemplate>
+                <DataTemplate>
+                    <Border BorderBrush="Black" BorderThickness="1" Margin="5" Width="180" Height="150">
+                        <StackPanel>
+                            <Image Source="{Binding Image}" Width="150" Height="90"/>
+                            <TextBlock Text="{Binding Name}" HorizontalAlignment="Center" TextWrapping="Wrap" TextAlignment="Center"/>
+                            <StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
+                                <TextBlock Text="1 portion = " />
+                                <TextBlock Text="{Binding FinalPriceInCents}" />
+                                <TextBlock Text="$" />
+                            </StackPanel>
+                            
+                        </StackPanel>
+                    </Border>
+                </DataTemplate>
+            </ListView.ItemTemplate>
+        </ListView>
+
+
+
+
+
+        <!--<StackPanel Grid.Column="0"
                     Grid.ColumnSpan="2"
                     Grid.Row="1"
                     Margin="10 0 10 0"
-                    Width="680"
+                    Width="650"
                     Height="300">
             <ListView ItemsSource="{Binding Dish}">
                 <ListView.ItemsPanel>
@@ -120,7 +164,7 @@
                                     <StackPanel>
                                         <Image Source="{Binding Image}" Width="100" Height="100"/>
                                         <TextBlock Text="{Binding Name}" HorizontalAlignment="Center"/>
-                                        <TextBlock Text="{Binding Price}" HorizontalAlignment="Center"/>
+                                        <TextBlock Text="{Binding FinalPriceInCents}" HorizontalAlignment="Center"/>
                                     </StackPanel>
                                 </DataTemplate>
                             </GridViewColumn.CellTemplate>
@@ -128,6 +172,6 @@
                     </GridView>
                 </ListView.View>
             </ListView>
-        </StackPanel>
+        </StackPanel>-->
     </Grid>
 </Page>
