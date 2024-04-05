@@ -15,9 +15,11 @@
             <RowDefinition/>
         </Grid.RowDefinitions>
         <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="100"/>
+            <ColumnDefinition Width="100" />
             <ColumnDefinition Width="700"/>
         </Grid.ColumnDefinitions>
+
+
 
         <Border BorderBrush="Black"
                 BorderThickness="1"
@@ -26,26 +28,67 @@
                 Height="410"
                 Width="99"
                 HorizontalAlignment="Right"
-                VerticalAlignment="Top">
+                VerticalAlignment="Top"
+                Background="#7FEED4FE">
             <Grid Grid.Column="0">
-            <TextBlock HorizontalAlignment="Left"
+                <StackPanel Orientation="Vertical">
+                    <Image Source="/Images/logo.png"
+                           Width="50"
+                           Height="50"
+                           Margin="0 10 0 0"
+                           VerticalAlignment="Bottom"/>
+                    <TextBlock HorizontalAlignment="Center"
                        VerticalAlignment="Top"
-                       Margin="5 10 0 0">
-                <Hyperlink NavigateUri="DishesPage"
-                           RequestNavigate="Hyperlink_RequestNavigate">Dishes</Hyperlink>
-            </TextBlock>
-            <TextBlock HorizontalAlignment="Left"
-                       VerticalAlignment="Top"
-                       Margin="5 40 0 0">
-                <Hyperlink NavigateUri="IngredientsPage"
+                           Text="Nyam Nyam"/>
+                </StackPanel>
+                
+                <StackPanel Orientation="Horizontal"
+                            Margin="3 90 0 0"
+                            VerticalAlignment="Top"
+                            HorizontalAlignment="Left">
+                    <Image Source="/Images/dish.png"
+                           Width="20"
+                           Height="20"
+                           Margin="0 0 5 0"
+                           HorizontalAlignment="Center"/>
+                    <TextBlock  VerticalAlignment="Center"
+                               HorizontalAlignment="Center">
+                        <Hyperlink NavigateUri="DishesPage"
+                            RequestNavigate="Hyperlink_RequestNavigate">Dishes</Hyperlink>
+                    </TextBlock>
+                </StackPanel>
+                
+                <StackPanel Orientation="Horizontal"
+                            Margin="3 120 0 0"
+                            VerticalAlignment="Top"
+                            HorizontalAlignment="Left">
+                    <Image Source="/Images/ingredients.png"
+                           Width="20"
+                           Height="20"
+                           Margin="0 0 5 0"
+                           HorizontalAlignment="Center"/>
+                    <TextBlock VerticalAlignment="Center"
+                               HorizontalAlignment="Center">
+                    <Hyperlink NavigateUri="IngredientsPage"
                            RequestNavigate="Hyperlink_RequestNavigate">Ingredients</Hyperlink>
-            </TextBlock>
-            <TextBlock HorizontalAlignment="Left"
-                       VerticalAlignment="Top"
-                       Margin="5 70 0 0">
-                <Hyperlink NavigateUri="OrdersPage"
-                           RequestNavigate="Hyperlink_RequestNavigate">Orders</Hyperlink>
-            </TextBlock>
+                    </TextBlock>
+                </StackPanel>
+
+                <StackPanel Orientation="Horizontal"
+                            Margin="3 150 0 0"
+                            VerticalAlignment="Top"
+                            HorizontalAlignment="Left">
+                    <Image Source="/Images/orders.png"
+                           Width="20"
+                           Height="20"
+                           Margin="0 0 5 0"
+                           HorizontalAlignment="Center"/>
+                    <TextBlock VerticalAlignment="Center"
+                               HorizontalAlignment="Center">
+                        <Hyperlink NavigateUri="OrdersPage"
+                            RequestNavigate="Hyperlink_RequestNavigate">Orders</Hyperlink>
+                    </TextBlock>
+                </StackPanel>
             </Grid>
         </Border>
 
@@ -57,10 +100,23 @@
                 Height="410"
                 Width="686"
                 HorizontalAlignment="Left">
-            <Frame x:Name="NaFr"
-               Grid.Column="1"
-               Grid.RowSpan="5"
-               NavigationUIVisibility="Hidden"/>
+            <Grid>
+                <Image Source="/Images/logo.png"
+                    Width="300"
+                    Height="300"
+                    HorizontalAlignment="Center"
+                    VerticalAlignment="Top"
+                    Margin="0 20 0 0"/>
+                <TextBlock Text="Welcome to Nyam Nyam!"
+                           FontSize="50"
+                           HorizontalAlignment="Center"
+                           VerticalAlignment="Bottom"
+                           Margin="0 0 0 20"/>
+                <Frame x:Name="NaFr"
+                    Grid.Column="1"
+                    Grid.RowSpan="5"
+                    NavigationUIVisibility="Hidden"/>
+            </Grid>
         </Border>
     </Grid>
 </Window>

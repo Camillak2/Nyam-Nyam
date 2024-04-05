@@ -47,5 +47,23 @@ namespace Nyam_Nyam.Pages
                 NavigationService.Navigate(new RecipeForSelectedDishPage(DishesLV.SelectedItem as Dish));
             }
         }
+
+        private void CategoryCB_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            var a = CategoryCB.SelectedItem as Category;
+            DishesLV.ItemsSource = DBConnection.nyamNyam.Dish.Where(i => i.CategoryId == a.Id).ToList();
+        }
+
+        private void SearchTB_TextChanged(object sender, TextChangedEventArgs e)
+        {
+            if (SearchTB.Text.Length > 0)
+            {
+                DishesLV.ItemsSource = DBConnection.nyamNyam.Dish.Where(i => i.Name.ToLower().StartsWith(SearchTB.Text.Trim().ToLower())).ToList();
+            }
+            else
+            {
+                Refresh();
+            }
+        }
     }
 }
