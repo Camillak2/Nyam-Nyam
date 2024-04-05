@@ -37,22 +37,35 @@ namespace Nyam_Nyam.Pages
             contextDish = dish;
             InitializeDataInPage();
             this.DataContext = this;
+            Refresh();
+        }
+
+        private void Refresh()
+        {
+            CookingProcessLV.ItemsSource = DBConnection.nyamNyam.CookingStage.Where(i => i.DishId == contextDish.Id).ToList();
+            IngredientsLV.ItemsSource = DBConnection.nyamNyam.GetIngredientsForSelectDish(contextDish.Id).ToList();
         }
 
         private void InitializeDataInPage()
         {
-            //CookingProcessLV.ItemsSource = DBConnection.nyamNyam.CookingStage.Where(i => i.DishId == contextDish.Id);
-            IngredientsLV.ItemsSource = DBConnection.nyamNyam.GetIngredientsForSelectDish(contextDish.Id).ToList();
-            dishes = DBConnection.nyamNyam.Dish.ToList();
-            ingredients = DBConnection.nyamNyam.Ingredient.ToList();
+            units = DBConnection.nyamNyam.Unit.ToList();
             cookingStages = DBConnection.nyamNyam.CookingStage.ToList();
             ingredientOfStages = DBConnection.nyamNyam.IngredientOfStage.ToList();
-            units = DBConnection.nyamNyam.Unit.ToList();
+            ingredients = DBConnection.nyamNyam.Ingredient.ToList();
+            dishes = DBConnection.nyamNyam.Dish.ToList();
             this.DataContext = this;
+
             DishTB.Text = contextDish.Name;
             CategoryTB.Text = contextDish.Category.Name;
-            //CookingTimeTB.Text = contextDish.CookingStage.TimeInMinutes.ToString() + " min";
             DescriptionTB.Text = contextDish.Description;
+            var time = DBConnection.nyamNyam.CookingStage.Where(x => x.DishId == contextDish.Id).Select(i => i.TimeInMinutes).ToList();
+            int itogo = (int)time.Sum();
+            CookingTimeTB.Text = $"{itogo} min";
+        }
+
+        private void BackBTN_Click(object sender, RoutedEventArgs e)
+        {
+            NavigationService.Navigate(new DishesPage());
         }
     }
 }

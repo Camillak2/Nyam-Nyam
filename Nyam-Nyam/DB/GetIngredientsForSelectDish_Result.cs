@@ -15,7 +15,6 @@ namespace Nyam_Nyam.DB
     {
         public string Name { get; set; }
         public double AvailableCount { get; set; }
-        public string Name1 { get; set; }
         public int CostInCents { get; set; }
     }
 }

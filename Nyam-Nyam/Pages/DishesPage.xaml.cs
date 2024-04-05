@@ -25,7 +25,6 @@ namespace Nyam_Nyam.Pages
         public static List<Dish> dishes { get; set; }
         public static Dish dish { get; set; }
 
-
         public DishesPage()
         {
             InitializeComponent();
@@ -42,9 +41,11 @@ namespace Nyam_Nyam.Pages
 
         private void DishesLV_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
-            if ()
-            DBConnection.selectedDish = DishesLV.SelectedItem as Dish;
-            NavigationService.Navigate(new RecipeForSelectedDishPage(dish));
+            if (DishesLV.SelectedItem is Dish)
+            {
+                DBConnection.selectedDish = DishesLV.SelectedItem as Dish;
+                NavigationService.Navigate(new RecipeForSelectedDishPage(DishesLV.SelectedItem as Dish));
+            }
         }
     }
 }

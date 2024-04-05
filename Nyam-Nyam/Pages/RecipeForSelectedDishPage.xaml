@@ -78,7 +78,8 @@
                     VerticalAlignment="Top"
                     Margin="10 80 0 0">
             <TextBlock Text="Short description: "/>
-            <TextBlock x:Name="DescriptionTB"/>
+            <TextBlock x:Name="DescriptionTB"
+                       TextWrapping="Wrap"/>
         </StackPanel>
 
         <StackPanel Grid.Column="0"
@@ -99,7 +100,7 @@
                 <ListView.View>
                     <GridView>
                         <GridView.Columns>
-                            <GridViewColumn Header ="" Width="15">
+                            <GridViewColumn Header="" Width="20">
                                 <GridViewColumn.CellTemplate>
                                     <DataTemplate>
                                         <RadioButton/>
@@ -131,7 +132,7 @@
                                 <GridViewColumn.CellTemplate>
                                     <DataTemplate>
                                         <StackPanel>
-                                            <TextBlock Text="{Binding Position.Name}"/>
+                                            <TextBlock Text="{Binding Ingredient.AvailableCount}"/>
                                             <TextBlock Text="$"/>
                                         </StackPanel>
                                     </DataTemplate>
@@ -159,14 +160,17 @@
                 FontSize="20"
                 Margin="0 10 0 0"
                 Height="180"
-                Width="330">
+                Width="330"
+                ItemsSource="{Binding CookingStage}">
                 <ListView.View>
                     <GridView>
                         <GridView.Columns>
                             <GridViewColumn Header ="" Width="330">
                                 <GridViewColumn.CellTemplate>
                                     <DataTemplate>
-                                        <TextBlock Text="{Binding CookingStage.ProcessDescription}"/>
+                                        <TextBlock Text="{Binding ProcessDescription}"
+                                                   TextWrapping="Wrap"
+                                                   VerticalAlignment="Center"/>
                                     </DataTemplate>
                                 </GridViewColumn.CellTemplate>
                             </GridViewColumn>
@@ -176,13 +180,12 @@
             </ListView>
         </StackPanel>
 
-
         <Button x:Name="BackBTN"
                 Content="Back"
                 Grid.Column="0"
                 Grid.Row="2"
                 Grid.ColumnSpan="2"
                 Height="30"
-                Width="100"/>
+                Width="100" Click="BackBTN_Click"/>
     </Grid>
 </Page>
