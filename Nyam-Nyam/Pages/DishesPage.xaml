@@ -5,7 +5,7 @@
       xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
       xmlns:local="clr-namespace:Nyam_Nyam.Pages"
       mc:Ignorable="d" 
-      d:DesignHeight="410" d:DesignWidth="686"
+      d:DesignHeight="780" d:DesignWidth="1350"
       Title="DishesPage">
 
     <Grid Background="#fed7c1">
@@ -14,31 +14,31 @@
             <ColumnDefinition/>
         </Grid.ColumnDefinitions>
         <Grid.RowDefinitions>
-            <RowDefinition Height="100"/>
-            <RowDefinition Height="350"/>
+            <RowDefinition Height="250"/>
+            <RowDefinition Height="530"/>
         </Grid.RowDefinitions>
 
         <TextBlock Text="List of Dishes"
                    Style="{StaticResource Title}"
                    Grid.Column="0"
                    Grid.Row="0"
-                   Margin="10 0 0 0"
+                   Margin="20 0 0 0"
                    HorizontalAlignment="Left"
                    VerticalAlignment="Top"/>
 
         <StackPanel Grid.Column="0"
                     Grid.Row="0"
-                    Margin="10 40 0 0"
-                    Height="28"
+                    Margin="20 100 0 0"
+                    Height="56"
                     VerticalAlignment="Top"
                     Orientation="Horizontal">
             <TextBlock Text="Category:"
-                   Margin="0 0 10 0"
+                   Margin="0 0 20 0"
                    HorizontalAlignment="Left"
                    VerticalAlignment="Center"/>
             <ComboBox x:Name="CategoryCB"
-                   Width="110"
-                   Height="28"
+                   Width="400"
+                   Height="56"
                    HorizontalAlignment="Left"
                    VerticalAlignment="Center"
                    ItemsSource="{Binding categories}" SelectionChanged="CategoryCB_SelectionChanged">
@@ -52,45 +52,49 @@
 
         <StackPanel Grid.Column="1"
                     Grid.Row="0"
-                    Margin="10 40 0 0"
-                    Height="30"
+                    Margin="20 100 0 0"
+                    Height="60"
                     VerticalAlignment="Top"
                     Orientation="Horizontal"
                     Grid.ColumnSpan="2">
             <TextBlock Text="Name:"
-                    Margin="0 0 10 0"
+                    Margin="0 0 20 0"
                     HorizontalAlignment="Left"
                     VerticalAlignment="Center"/>
             <TextBox x:Name="SearchTB"
-                    Width="200"
-                    Height="28"
+                    Width="400"
+                    Height="56"
                     HorizontalAlignment="Left" TextChanged="SearchTB_TextChanged"/>
         </StackPanel>
 
         <CheckBox
             Grid.Column="0"
             Grid.Row="0"
-            Margin="10 80 0 0"
+            Margin="20 180 0 0"
             HorizontalAlignment="Left"
             VerticalAlignment="Top"
-            Content="Show only dishes with aailable ingredients"/>
+            Content="Show only dishes with available ingredients">
+            <CheckBox.LayoutTransform>
+                <ScaleTransform ScaleX="1" ScaleY="1"/>
+            </CheckBox.LayoutTransform>
+        </CheckBox>
 
         <StackPanel Grid.Column="1"
                     Grid.Row="0"
-                    Margin="10 70 0 0"
-                    Height="30"
+                    Margin="20 170 0 0"
+                    Height="60"
                     VerticalAlignment="Top"
                     Orientation="Horizontal"
                     Grid.ColumnSpan="2">
             <TextBlock Text="Price:"
-               Margin="0 0 10 0"
+               Margin="0 0 20 0"
                HorizontalAlignment="Left"
                VerticalAlignment="Center"/>
             <Slider Name="RectangleHeight"
-                    Width="100"
+                    Width="200"
                     Orientation="Horizontal"
                     HorizontalAlignment="Left"
-                    VerticalAlignment="Bottom"
+                    VerticalAlignment="Center"
                     Value="50"
                     Minimum="0"
                     Maximum="200" 
@@ -105,10 +109,10 @@
             Grid.ColumnSpan="2"
             Grid.Row="1"
             VerticalAlignment="Top"
-            HorizontalAlignment="Center"
-            Margin="10 10 10 0"
-            Width="666"
-            Height="280"
+            HorizontalAlignment="Left"
+            Margin="18 10 18 10"
+            Width="1300"
+            Height="480"
             ScrollViewer.HorizontalScrollBarVisibility="Disabled"
             ScrollViewer.VerticalScrollBarVisibility="Auto"
             ItemsSource="{Binding Dish}" BorderBrush="#fdb249" BorderThickness="3" SelectionChanged="DishesLV_SelectionChanged">
@@ -129,16 +133,23 @@
                 <DataTemplate>
                     <Border BorderBrush="#fdb249"
                             BorderThickness="2"
-                            Margin="1 5 1 0"
-                            Width="200"
-                            Height="200">
+                            Margin="10 10 2 10"
+                            Width="400"
+                            Height="400">
                         <StackPanel>
-                            <Image Source="{Binding Image}" Width="138" Height="138" Margin="3"/>
-                            <TextBlock Text="{Binding Name}" HorizontalAlignment="Center" TextWrapping="Wrap" TextAlignment="Center"/>
-                            <StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
-                                <TextBlock Text="1 portion = " />
-                                <TextBlock Text="{Binding FinalPriceInCents}" />
-                                <TextBlock Text="$" />
+                            <Image Source="{Binding Image}" Width="276" Height="276" Margin="3"/>
+                            <TextBlock Text="{Binding Name}"
+                                       HorizontalAlignment="Center"
+                                       TextWrapping="Wrap"
+                                       TextAlignment="Center"
+                                       FontSize="24"/>
+                            <StackPanel Orientation="Horizontal"
+                                        HorizontalAlignment="Center"
+                                        VerticalAlignment="Bottom"
+                                        Margin="0 0 0 5">
+                                <TextBlock Text="1 portion = " FontSize="20"/>
+                                <TextBlock Text="{Binding FinalPriceInCents}" FontSize="20"/>
+                                <TextBlock Text="$" FontSize="20"/>
                             </StackPanel>
 
                         </StackPanel>

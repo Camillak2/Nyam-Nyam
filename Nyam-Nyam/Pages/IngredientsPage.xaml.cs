@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Nyam_Nyam.DB;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -20,9 +21,30 @@ namespace Nyam_Nyam.Pages
     /// </summary>
     public partial class IngredientsPage : Page
     {
+        public static List<Category> categories { get; set; }
+        public static List<Dish> dishes { get; set; }
+        public static Dish dish { get; set; }
+        public static List<Ingredient> ingredients { get; set; }
+
         public IngredientsPage()
         {
             InitializeComponent();
+            ingredients = DBConnection.nyamNyam.Ingredient.ToList();
+            Refresh();
         }
+
+        private void Refresh()
+        {
+            IngredientsLV.ItemsSource = DBConnection.nyamNyam.Ingredient.ToList();
+        }
+
+        //private void DishesLV_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        //{
+        //    if (IngredientsLV.SelectedItem is Ingredient)
+        //    {
+        //        DBConnection.selectedDish = IngredientsLV.SelectedItem as Ingredient;
+        //        NavigationService.Navigate(new RecipeForSelectedDishPage(IngredientsLV.SelectedItem as Ingredient));
+        //    }
+        //}
     }
 }

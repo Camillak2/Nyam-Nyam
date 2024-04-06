@@ -31,7 +31,7 @@
         </Style>
 
         <Style TargetType="TextBox">
-            <Setter Property="FontSize" Value="12"/>
+            <Setter Property="FontSize" Value="30"/>
             <Setter Property="FontFamily" Value="Comic Sans MS"/>
             <Setter Property="BorderBrush" Value="#fdb249"/>
             <Setter Property="Foreground" Value="#51444c"/>
@@ -56,19 +56,19 @@
         </Style>
 
         <Style TargetType="TextBlock">
-            <Setter Property="FontSize" Value="12"/>
+            <Setter Property="FontSize" Value="30"/>
             <Setter Property="FontFamily" Value="Comic Sans MS"/>
             <Setter Property="Foreground" Value="#51444c"/>
         </Style>
 
         <Style TargetType="TextBlock" x:Key="Title">
-            <Setter Property="FontSize" Value="25"/>
+            <Setter Property="FontSize" Value="70"/>
             <Setter Property="FontFamily" Value="Comic Sans MS"/>
             <Setter Property="Foreground" Value="#fdb249"/>
         </Style>
 
         <Style TargetType="TextBlock" x:Key="Subtitle">
-            <Setter Property="FontSize" Value="18"/>
+            <Setter Property="FontSize" Value="36"/>
             <Setter Property="FontFamily" Value="Comic Sans MS"/>
             <Setter Property="Foreground" Value="#51444c"/>
         </Style>
@@ -79,7 +79,7 @@
         </Style>
 
         <Style TargetType="ListView">
-            <Setter Property="FontSize" Value="14"/>
+            <Setter Property="FontSize" Value="24"/>
             <Setter Property="Foreground" Value="#51444c"/>
         </Style>
 
