@@ -148,7 +148,7 @@
                 Width="640"
                 ScrollViewer.HorizontalScrollBarVisibility="Disabled"
                 ScrollViewer.VerticalScrollBarVisibility="Auto"
-                ItemsSource="{Binding Ingredient}" BorderBrush="#FFFDB249">
+                BorderBrush="#FFFDB249">
                 <ListView.Background>
                     <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
                         <GradientStop Color="#7FFED7B1"/>
@@ -159,7 +159,7 @@
                 <ListView.View>
                     <GridView>
                         <GridView.Columns>
-                            <GridViewColumn Header="" Width="40">
+                            <GridViewColumn Header="" Width="27">
                                 <GridViewColumn.CellTemplate>
                                     <DataTemplate>
                                         <RadioButton />
@@ -169,21 +169,21 @@
                             <GridViewColumn Header ="Name" Width="220">
                                 <GridViewColumn.CellTemplate>
                                     <DataTemplate>
-                                        <TextBlock Text="{Binding Name}" TextAlignment="Center"/>
+                                        <TextBlock Text="{Binding Ingredient.Name}" TextAlignment="Center"/>
                                     </DataTemplate>
                                 </GridViewColumn.CellTemplate>
                             </GridViewColumn>
                             <GridViewColumn Header ="Quantity" Width="130">
                                 <GridViewColumn.CellTemplate>
                                     <DataTemplate>
-                                        <TextBlock Text="{Binding AvailableCount}" TextAlignment="Center"/>
+                                        <TextBlock Text="{Binding Quantity}" TextAlignment="Center"/>
                                     </DataTemplate>
                                 </GridViewColumn.CellTemplate>
                             </GridViewColumn>
                             <GridViewColumn Header ="Unit" Width="120">
                                 <GridViewColumn.CellTemplate>
                                     <DataTemplate>
-                                        <TextBlock Text="{Binding Unit.Name}" TextAlignment="Center"/>
+                                        <TextBlock Text="{Binding Ingredient.Unit.Name}" TextAlignment="Center"/>
                                     </DataTemplate>
                                 </GridViewColumn.CellTemplate>
                             </GridViewColumn>
@@ -191,7 +191,7 @@
                                 <GridViewColumn.CellTemplate>
                                     <DataTemplate>
                                         <StackPanel Orientation="Horizontal">
-                                            <TextBlock Text="{Binding CostInCents}" TextAlignment="Center"/>
+                                            <TextBlock Text="{Binding Ingredient.CostInCents}" TextAlignment="Center"/>
                                             <TextBlock Text="$" TextAlignment="Center"/>
                                         </StackPanel>
                                     </DataTemplate>

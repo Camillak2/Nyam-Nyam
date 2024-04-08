@@ -76,17 +76,113 @@
                 TickFrequency="10"/>
         </StackPanel>
 
-        <ListView x:Name="IngredientsLV"
-        Grid.ColumnSpan="2"
-        Grid.Row="1"
-        VerticalAlignment="Top"
-        HorizontalAlignment="Left"
-        Margin="18 10 18 10"
-        Width="1300"
-        Height="480"
-        ScrollViewer.HorizontalScrollBarVisibility="Disabled"
-        ScrollViewer.VerticalScrollBarVisibility="Auto"
-        ItemsSource="{Binding Ingredient}"
+
+
+        <ListView x:Name="IngredientsLv" 
+                  Margin="30 0 0 80"
+                  Grid.Column="1" 
+                  Grid.Row="1" 
+                  Grid.ColumnSpan="1" 
+                  Grid.RowSpan="5" 
+                  Width="1360" 
+                  Height="800"
+                  HorizontalAlignment="Left"
+                  ItemsSource="{Binding ingredients}" 
+                  Background="Transparent" BorderThickness="0"
+                  ScrollViewer.HorizontalScrollBarVisibility="Disabled"
+                  ScrollViewer.CanContentScroll="False">
+            <ListView.ItemsPanel>
+            <ItemsPanelTemplate>
+                <UniformGrid Columns="2"/>
+            </ItemsPanelTemplate>
+            </ListView.ItemsPanel>
+            <ListView.ItemTemplate>
+            <DataTemplate>
+                <Border BorderThickness="2" 
+                            BorderBrush="Gray" 
+                            Background="White"
+                            Margin="5" 
+                            Padding="5" 
+                            CornerRadius="0.5">
+                    <StackPanel
+                                    Width="610"
+                                    Height="110"                                   
+                                    Cursor="Hand">
+                        <StackPanel >
+                            <TextBlock Text="{Binding Name}" 
+                                       Margin="3 5 0 0"
+                                       FontWeight="Bold"                                       
+                                       FontSize="20"
+                                       
+                                       TextWrapping="Wrap"
+                                       TextAlignment="Left"
+                                       HorizontalAlignment="Left"/>
+
+                            <TextBlock 
+                                      TextWrapping="Wrap"
+                                      Margin="3 5 0 0"
+                                      TextAlignment="Left"
+                                      HorizontalAlignment="Left">
+                                     <TextBlock Text="Price:"/>
+                                     <TextBlock Text="{Binding CostInCents}" />
+                                     <TextBlock Text="$"/>                                 
+                                </TextBlock>
+
+                            <TextBlock
+                                       Margin="3 3 0 0"                                    
+                                       TextWrapping="Wrap"
+                                       TextAlignment="Left"
+                                       HorizontalAlignment="Left">
+                                    <Hyperlink  Click="Hyperlink_Click">
+                                        Delete
+                                    </Hyperlink>
+                            </TextBlock>
+
+                            <TextBox
+                                    PreviewTextInput="NumericOnly"
+                                    x:Name="countIngredientTbx"
+                                    Margin="0 -50 -220 0"
+                                   
+                                    Text="{Binding AvailableCount}"/>
+
+
+                            <TextBlock                                      
+                                      TextAlignment="Right"
+                                      HorizontalAlignment="Right">
+                                     <TextBlock 
+                                         VerticalAlignment="Center"
+                                         Margin="0 -60 48 0"
+                                         Text="{Binding Unit.Name}"/>                              
+                                </TextBlock>
+
+                            <Button x:Name="MinusBtn"
+                                Margin="565 -58 0 0"
+                                Click="MinusBtn_Click"
+                                />
+
+
+                            <Button x:Name="PlusBtn"
+                                Click="PlusBtn_Click"
+                                Margin="565 -158 0 0"
+                                />
+                        </StackPanel>
+                    </StackPanel>
+                </Border>
+            </DataTemplate>
+        </ListView.ItemTemplate>
+        </ListView>
+
+        <!--<ListView x:Name="IngredientsLV"
+                  Grid.ColumnSpan="2"
+                  Grid.Row="1"
+                  VerticalAlignment="Top"
+                  HorizontalAlignment="Left"
+                  Margin="18 10 18 10"
+                  Width="1300"
+                  Height="480"
+                  ScrollViewer.HorizontalScrollBarVisibility="Disabled"
+                  ScrollViewer.VerticalScrollBarVisibility="Auto"
+                  ItemsSource="{Binding Ingredient}"
                   BorderBrush="#fdb249"
                   BorderThickness="3">
             <ListView.Background>
@@ -106,45 +202,74 @@
                     <Border BorderBrush="#fdb249"
                         BorderThickness="2"
                         Margin="10 10 2 10"
-                        Width="600"
-                        Height="200">
+                        Width="600">
                         <StackPanel Orientation="Horizontal"
-                                    VerticalAlignment="Center">
-                            <StackPanel Orientation="Vertical">
+                                    VerticalAlignment="Center"
+                                    Margin="10"
+                                    Width="600"
+                                    Height="120">
+                            <StackPanel Orientation="Vertical"
+                                        HorizontalAlignment="Left">
                                 <TextBlock Text="{Binding Name}"
                                     HorizontalAlignment="Left"
                                     TextWrapping="Wrap"
                                     TextAlignment="Center"
-                                    FontSize="24"/>
+                                    FontSize="20"/>
                                 <StackPanel Orientation="Horizontal">
                                     <TextBlock Text="Price:"
                                         HorizontalAlignment="Center"
                                         TextWrapping="Wrap"
                                         TextAlignment="Center"
-                                        FontSize="24"/>
-                                    <TextBlock Text="{Binding Name}"
+                                        FontSize="18"/>
+                                    <TextBlock Text="{Binding CostInCents}"
                                         HorizontalAlignment="Center"
                                         TextWrapping="Wrap"
                                         TextAlignment="Center"
-                                        FontSize="24"/>
+                                        FontSize="18"/>
                                 </StackPanel>
-                                <Button Content="Delete"/>
+                                <Button Width="100" HorizontalAlignment="Left">
+                                    <TextBlock Text="Delete"
+                                               HorizontalAlignment="Center"
+                                               VerticalAlignment="Center"
+                                               FontSize="18"/>
+                                </Button>
                             </StackPanel>
                             <StackPanel Orientation="Horizontal"
-                                    HorizontalAlignment="Right"
-                                    Margin="0 0 0 5">
-                                <TextBox Text="1 portion = " FontSize="20"/>
-                                <TextBlock Text="{Binding FinalPriceInCents}"
-                                           FontSize="20"/>
-                                <StackPanel Orientation="Vertical">
-                                    <Button Content="+"/>
-                                    <Button Content="-"/>
+                                    HorizontalAlignment="Right">
+                                <Border Width="50"
+                                        Height="30"
+                                        BorderBrush="Black"
+                                        HorizontalAlignment="Right"
+                                        VerticalAlignment="Center">
+                                    <TextBlock x:Name="UnitTB"
+                                           Width="50"
+                                           Height="30"
+                                           FontSize="20"
+                                           VerticalAlignment="Center"
+                                           HorizontalAlignment="Right"/>
+                                </Border>
+                                <TextBlock Text="unit" FontSize="20"
+                                           VerticalAlignment="Center"
+                                           HorizontalAlignment="Right"/>
+                                <StackPanel Orientation="Vertical"
+                                            VerticalAlignment="Center"
+                                            HorizontalAlignment="Right">
+                                    <Button Margin="5">
+                                        <TextBlock Text="+"
+                                                   VerticalAlignment="Center"
+                                                   HorizontalAlignment="Center"/>
+                                    </Button>
+                                    <Button Margin="5">
+                                        <TextBlock Text="-"
+                                                   VerticalAlignment="Center"
+                                                   HorizontalAlignment="Center"/>
+                                    </Button>
                                 </StackPanel>
                             </StackPanel>
                         </StackPanel>
                     </Border>
                 </DataTemplate>
             </ListView.ItemTemplate>
-        </ListView>
+        </ListView>-->
     </Grid>
 </Page>

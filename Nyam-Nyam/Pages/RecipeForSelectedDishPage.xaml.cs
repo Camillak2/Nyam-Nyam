@@ -45,7 +45,7 @@ namespace Nyam_Nyam.Pages
         private void Refresh()
         {
             CookingProcessLV.ItemsSource = DBConnection.nyamNyam.CookingStage.Where(i => i.DishId == contextDish.Id).ToList();
-            IngredientsLV.ItemsSource = DBConnection.nyamNyam.GetIngredientsForSelectDish(contextDish.Id).ToList();
+            IngredientsLV.ItemsSource = contextDish.CookingStage.SelectMany(x => x.IngredientOfStage).ToList();
         }
 
         private void InitializeDataInPage()
