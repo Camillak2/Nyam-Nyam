@@ -5,7 +5,7 @@
       xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
       xmlns:local="clr-namespace:Nyam_Nyam.Pages"
       mc:Ignorable="d" 
-      d:DesignHeight="780" d:DesignWidth="1350"
+      d:DesignHeight="784" d:DesignWidth="1350"
       Title="IngredientsPage">
 
     <Grid Background="#fed7c1">
@@ -108,10 +108,11 @@
                         Margin="10 10 2 10"
                         Width="600"
                         Height="200">
-                        <StackPanel Orientation="Horizontal">
+                        <StackPanel Orientation="Horizontal"
+                                    VerticalAlignment="Center">
                             <StackPanel Orientation="Vertical">
                                 <TextBlock Text="{Binding Name}"
-                                    HorizontalAlignment="Center"
+                                    HorizontalAlignment="Left"
                                     TextWrapping="Wrap"
                                     TextAlignment="Center"
                                     FontSize="24"/>
@@ -130,8 +131,7 @@
                                 <Button Content="Delete"/>
                             </StackPanel>
                             <StackPanel Orientation="Horizontal"
-                                    HorizontalAlignment="Center"
-                                    VerticalAlignment="Bottom"
+                                    HorizontalAlignment="Right"
                                     Margin="0 0 0 5">
                                 <TextBox Text="1 portion = " FontSize="20"/>
                                 <TextBlock Text="{Binding FinalPriceInCents}"
@@ -141,7 +141,6 @@
                                     <Button Content="-"/>
                                 </StackPanel>
                             </StackPanel>
-
                         </StackPanel>
                     </Border>
                 </DataTemplate>

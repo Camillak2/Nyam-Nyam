@@ -5,7 +5,7 @@
       xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
       xmlns:local="clr-namespace:Nyam_Nyam.Pages"
       mc:Ignorable="d" 
-      d:DesignHeight="410" d:DesignWidth="686"
+      d:DesignHeight="784" d:DesignWidth="1350"
       Title="RecipeForSelectedDishPage">
 
     <Grid Background="#fed7c1">
@@ -14,9 +14,9 @@
             <ColumnDefinition/>
         </Grid.ColumnDefinitions>
         <Grid.RowDefinitions>
-            <RowDefinition Height="110"/>
             <RowDefinition Height="250"/>
-            <RowDefinition Height="50"/>
+            <RowDefinition Height="450"/>
+            <RowDefinition Height="80"/>
         </Grid.RowDefinitions>
 
         <Border BorderBrush="Black"
@@ -25,8 +25,8 @@
                 Grid.Row="1"
                 HorizontalAlignment="Right"   
                 VerticalAlignment="Center"
-                Width="343"
-                Height="250"/>
+                Width="675"
+                Height="450"/>
 
         <Border BorderBrush="Black"
                 BorderThickness="1"
@@ -34,8 +34,8 @@
                 Grid.Row="1"
                 HorizontalAlignment="Left"
                 VerticalAlignment="Center"
-                Width="343"
-                Height="250"/>
+                Width="675"
+                Height="450"/>
 
         <StackPanel Orientation="Horizontal"
                     Grid.Row="0"
@@ -44,9 +44,13 @@
                     HorizontalAlignment="Left"
                     VerticalAlignment="Top"
                     Margin="10 0 0 0">
-            <TextBlock Text="Recipe for "
+            <TextBlock Text="Recipe for '"
                        Style="{StaticResource Title}"/>
             <TextBlock x:Name="DishTB"
+                       TextWrapping="Wrap"
+                       Style="{StaticResource Title}"/>
+            <TextBlock Text="'"
+                       TextWrapping="Wrap"
                        Style="{StaticResource Title}"/>
         </StackPanel>
 
@@ -55,7 +59,7 @@
                     Grid.Column="0"
                     HorizontalAlignment="Left"
                     VerticalAlignment="Top"
-                    Margin="10 40 0 0">
+                    Margin="10 90 0 0">
             <TextBlock Text="Category: "/>
             <TextBlock x:Name="CategoryTB"/>
         </StackPanel>
@@ -65,7 +69,7 @@
                     Grid.Column="0"
                     HorizontalAlignment="Left"
                     VerticalAlignment="Top"
-                    Margin="10 60 0 0">
+                    Margin="10 130 0 0">
             <TextBlock Text="Cooking time: "/>
             <TextBlock x:Name="CookingTimeTB"/>
         </StackPanel>
@@ -76,10 +80,11 @@
                     Grid.ColumnSpan="2"
                     HorizontalAlignment="Left"
                     VerticalAlignment="Top"
-                    Margin="10 80 0 0">
+                    Margin="10 170 0 0">
             <TextBlock Text="Short description: "/>
             <TextBlock x:Name="DescriptionTB"
-                       TextWrapping="Wrap"/>
+                       TextWrapping="Wrap"
+                       Width="1100"/>
         </StackPanel>
 
         <StackPanel Orientation="Horizontal"
@@ -87,23 +92,34 @@
                     Grid.Column="1"
                     HorizontalAlignment="Left"
                     VerticalAlignment="Top"
-                    Margin="10 40 0 0">
+                    Margin="10 90 0 0">
             <TextBlock Text="Servings: "/>
             <Button x:Name="PlusBTN"
-                    Width="20"
-                    Content="-"
-                    HorizontalAlignment="Center" Click="PlusBTN_Click"/>
+                    Width="40"
+                    Height="40"
+                    HorizontalAlignment="Center" Click="PlusBTN_Click">
+                <TextBlock Text="-"
+                           HorizontalAlignment="Center"
+                           VerticalAlignment="Center"
+                           FontSize="50"/>
+            </Button>
             <Border Style="{StaticResource TextBlockBorder}"
-                     Width="50"
+                     Width="100"
                      Margin="5 0 5 0">
                 <TextBlock x:Name="ServingsTB"
-                       Width="50"
+                       Width="100"
                        HorizontalAlignment="Center"
                        VerticalAlignment="Center"/>
             </Border>
             <Button x:Name="MinusBTN"
-                    Width="20"
-                    Content="+" Click="MinusBTN_Click"/>
+                    Width="40"
+                    Height="40"
+                    Click="MinusBTN_Click">
+                <TextBlock Text="+"
+                           HorizontalAlignment="Center"
+                           VerticalAlignment="Center"
+                           FontSize="50"/>
+            </Button>
         </StackPanel>
 
         <StackPanel Orientation="Horizontal"
@@ -111,7 +127,7 @@
                     Grid.Column="1"
                     HorizontalAlignment="Left"
                     VerticalAlignment="Top"
-                    Margin="10 60 0 0">
+                    Margin="10 130 0 0">
             <TextBlock Text="Total cost: "/>
             <TextBlock x:Name="TotalCostTB"/>
         </StackPanel>
@@ -120,54 +136,63 @@
                     Grid.Row="1"
                     HorizontalAlignment="Center"
                     VerticalAlignment="Top"
-                    Margin="0 10 0 0"
+                    Margin="0 20 0 0"
                     Orientation="Vertical">
             <TextBlock Text="Ingredients:"
                        Style="{StaticResource Subtitle}"
                        HorizontalAlignment="Center"
                        VerticalAlignment="Center"/>
             <ListView x:Name="IngredientsLV"
-                FontSize="20"
                 Margin="0 10 0 0"
-                Height="180"
-                Width="330">
+                Height="350"
+                Width="640"
+                ScrollViewer.HorizontalScrollBarVisibility="Disabled"
+                ScrollViewer.VerticalScrollBarVisibility="Auto"
+                ItemsSource="{Binding Ingredient}" BorderBrush="#FFFDB249">
+                <ListView.Background>
+                    <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                        <GradientStop Color="#7FFED7B1"/>
+                        <GradientStop Color="#7FFDB249" Offset="1"/>
+                        <GradientStop Color="#7FFDC47C" Offset="0.5"/>
+                    </LinearGradientBrush>
+                </ListView.Background>
                 <ListView.View>
                     <GridView>
                         <GridView.Columns>
-                            <GridViewColumn Header="" Width="20">
+                            <GridViewColumn Header="" Width="40">
                                 <GridViewColumn.CellTemplate>
                                     <DataTemplate>
-                                        <RadioButton/>
+                                        <RadioButton />
                                     </DataTemplate>
                                 </GridViewColumn.CellTemplate>
                             </GridViewColumn>
-                            <GridViewColumn Header ="Name" Width="100">
+                            <GridViewColumn Header ="Name" Width="220">
                                 <GridViewColumn.CellTemplate>
                                     <DataTemplate>
-                                        <TextBlock Text="{Binding Name}"/>
+                                        <TextBlock Text="{Binding Name}" TextAlignment="Center"/>
                                     </DataTemplate>
                                 </GridViewColumn.CellTemplate>
                             </GridViewColumn>
-                            <GridViewColumn Header ="Quantity" Width="60">
+                            <GridViewColumn Header ="Quantity" Width="130">
                                 <GridViewColumn.CellTemplate>
                                     <DataTemplate>
-                                        <TextBlock Text="{Binding IngredientOfStage.Quantity}"/>
+                                        <TextBlock Text="{Binding AvailableCount}" TextAlignment="Center"/>
                                     </DataTemplate>
                                 </GridViewColumn.CellTemplate>
                             </GridViewColumn>
-                            <GridViewColumn Header ="Unit" Width="80">
+                            <GridViewColumn Header ="Unit" Width="120">
                                 <GridViewColumn.CellTemplate>
                                     <DataTemplate>
-                                        <TextBlock Text="{Binding Unit.Name}"/>
+                                        <TextBlock Text="{Binding Unit.Name}" TextAlignment="Center"/>
                                     </DataTemplate>
                                 </GridViewColumn.CellTemplate>
                             </GridViewColumn>
-                            <GridViewColumn Header ="Cost" Width="75">
+                            <GridViewColumn Header ="Cost" Width="120">
                                 <GridViewColumn.CellTemplate>
                                     <DataTemplate>
-                                        <StackPanel>
-                                            <TextBlock Text="{Binding Ingredient.AvailableCount}"/>
-                                            <TextBlock Text="$"/>
+                                        <StackPanel Orientation="Horizontal">
+                                            <TextBlock Text="{Binding CostInCents}" TextAlignment="Center"/>
+                                            <TextBlock Text="$" TextAlignment="Center"/>
                                         </StackPanel>
                                     </DataTemplate>
                                 </GridViewColumn.CellTemplate>
@@ -182,7 +207,7 @@
                     Grid.Row="1"
                     HorizontalAlignment="Center"
                     VerticalAlignment="Top"
-                    Margin="0 10 0 0"
+                    Margin="0 20 10 0"
                     Orientation="Vertical">
             <TextBlock Text="Cooking Process:"
                        Style="{StaticResource Subtitle}"
@@ -193,13 +218,20 @@
                 ScrollViewer.VerticalScrollBarVisibility="Auto"
                 FontSize="20"
                 Margin="0 10 0 0"
-                Height="180"
-                Width="330"
-                ItemsSource="{Binding CookingStage}">
+                Height="350"
+                Width="640"
+                ItemsSource="{Binding CookingStage}" BorderBrush="#FFFDB249">
+                <ListView.Background>
+                    <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                        <GradientStop Color="#7FFED7B1"/>
+                        <GradientStop Color="#7FFDB249" Offset="1"/>
+                        <GradientStop Color="#7FFDC47C" Offset="0.5"/>
+                    </LinearGradientBrush>
+                </ListView.Background>
                 <ListView.View>
                     <GridView>
                         <GridView.Columns>
-                            <GridViewColumn Header ="" Width="330">
+                            <GridViewColumn Header ="">
                                 <GridViewColumn.CellTemplate>
                                     <DataTemplate>
                                         <TextBlock Text="{Binding ProcessDescription}"
@@ -215,11 +247,18 @@
         </StackPanel>
 
         <Button x:Name="BackBTN"
-                Content="Back"
+                VerticalAlignment="Top"
+                Margin="15"
                 Grid.Column="0"
                 Grid.Row="2"
                 Grid.ColumnSpan="2"
                 Height="30"
-                Width="100" Click="BackBTN_Click"/>
+                Width="100"
+                Click="BackBTN_Click">
+            <TextBlock Text="Back"
+                       TextAlignment="Center"
+                       HorizontalAlignment="Center"
+                       VerticalAlignment="Center"/>
+        </Button>
     </Grid>
 </Page>
