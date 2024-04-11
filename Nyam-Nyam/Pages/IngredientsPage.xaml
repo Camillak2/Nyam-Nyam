@@ -76,17 +76,12 @@
                 TickFrequency="10"/>
         </StackPanel>
 
-
-
-        <ListView x:Name="IngredientsLv" 
-                  Margin="30 0 0 80"
-                  Grid.Column="1" 
-                  Grid.Row="1" 
-                  Grid.ColumnSpan="1" 
-                  Grid.RowSpan="5" 
-                  Width="1360" 
-                  Height="800"
-                  HorizontalAlignment="Left"
+        <!--<ListView x:Name="IngredientsLV" 
+                  Margin="10"
+                  Grid.Row="1"
+                  Width="1300" 
+                  Height="500"
+                  HorizontalAlignment="Center"
                   ItemsSource="{Binding ingredients}" 
                   Background="Transparent" BorderThickness="0"
                   ScrollViewer.HorizontalScrollBarVisibility="Disabled"
@@ -94,8 +89,8 @@
             <ListView.ItemsPanel>
             <ItemsPanelTemplate>
                 <UniformGrid Columns="2"/>
-            </ItemsPanelTemplate>
-            </ListView.ItemsPanel>
+                </ItemsPanelTemplate>
+                </ListView.ItemsPanel>
             <ListView.ItemTemplate>
             <DataTemplate>
                 <Border BorderThickness="2" 
@@ -105,74 +100,62 @@
                             Padding="5" 
                             CornerRadius="0.5">
                     <StackPanel
-                                    Width="610"
-                                    Height="110"                                   
-                                    Cursor="Hand">
-                        <StackPanel >
+                        Width="610"
+                        Height="110"                                   
+                        Cursor="Hand">
+                        <StackPanel>
                             <TextBlock Text="{Binding Name}" 
-                                       Margin="3 5 0 0"
-                                       FontWeight="Bold"                                       
-                                       FontSize="20"
-                                       
-                                       TextWrapping="Wrap"
-                                       TextAlignment="Left"
-                                       HorizontalAlignment="Left"/>
-
-                            <TextBlock 
-                                      TextWrapping="Wrap"
-                                      Margin="3 5 0 0"
-                                      TextAlignment="Left"
-                                      HorizontalAlignment="Left">
-                                     <TextBlock Text="Price:"/>
-                                     <TextBlock Text="{Binding CostInCents}" />
-                                     <TextBlock Text="$"/>                                 
-                                </TextBlock>
-
-                            <TextBlock
-                                       Margin="3 3 0 0"                                    
-                                       TextWrapping="Wrap"
-                                       TextAlignment="Left"
-                                       HorizontalAlignment="Left">
-                                    <Hyperlink  Click="Hyperlink_Click">
-                                        Delete
-                                    </Hyperlink>
-                            </TextBlock>
-
-                            <TextBox
-                                    PreviewTextInput="NumericOnly"
-                                    x:Name="countIngredientTbx"
-                                    Margin="0 -50 -220 0"
+                                   Margin="3 5 0 0"
+                                   FontWeight="Bold"                                       
+                                   FontSize="20"
                                    
-                                    Text="{Binding AvailableCount}"/>
-
+                                   TextWrapping="Wrap"
+                                   TextAlignment="Left"
+                                   HorizontalAlignment="Left"/>
+                            <TextBlock 
+                                  TextWrapping="Wrap"
+                                  Margin="3 5 0 0"
+                                  TextAlignment="Left"
+                                  HorizontalAlignment="Left">
+                                 <TextBlock Text="Price:"/>
+                                 <TextBlock Text="{Binding CostInCents}" />
+                                 <TextBlock Text="$"/>                                 
+                            </TextBlock>
+                            <TextBlock
+                                   Margin="3 3 0 0"                                    
+                                   TextWrapping="Wrap"
+                                   TextAlignment="Left"
+                                   HorizontalAlignment="Left">
+                                <Hyperlink Click="Hyperlink_Click">Delete</Hyperlink>
+                            </TextBlock>
+                            <TextBox
+                                PreviewTextInput="NumericOnly"
+                                x:Name="countIngredientTbx"
+                                Margin="0 -50 -220 0"
+                                Text="{Binding AvailableCount}"/>
 
                             <TextBlock                                      
-                                      TextAlignment="Right"
-                                      HorizontalAlignment="Right">
-                                     <TextBlock 
-                                         VerticalAlignment="Center"
-                                         Margin="0 -60 48 0"
-                                         Text="{Binding Unit.Name}"/>                              
-                                </TextBlock>
-
+                                  TextAlignment="Right"
+                                  HorizontalAlignment="Right">
+                                 <TextBlock 
+                                     VerticalAlignment="Center"
+                                     Margin="0 -60 48 0"
+                                     Text="{Binding Unit.Name}"/>                              
+                            </TextBlock>
                             <Button x:Name="MinusBtn"
                                 Margin="565 -58 0 0"
-                                Click="MinusBtn_Click"
-                                />
-
-
+                                Click="MinusBtn_Click"/>
                             <Button x:Name="PlusBtn"
                                 Click="PlusBtn_Click"
-                                Margin="565 -158 0 0"
-                                />
+                                Margin="565 -158 0 0"/>
                         </StackPanel>
                     </StackPanel>
                 </Border>
             </DataTemplate>
         </ListView.ItemTemplate>
-        </ListView>
+        </ListView>-->
 
-        <!--<ListView x:Name="IngredientsLV"
+        <ListView x:Name="IngredientsLV"
                   Grid.ColumnSpan="2"
                   Grid.Row="1"
                   VerticalAlignment="Top"
@@ -184,7 +167,8 @@
                   ScrollViewer.VerticalScrollBarVisibility="Auto"
                   ItemsSource="{Binding Ingredient}"
                   BorderBrush="#fdb249"
-                  BorderThickness="3">
+                  BorderThickness="3"
+                  ScrollViewer.CanContentScroll="False">
             <ListView.Background>
                 <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
                     <GradientStop Color="#7FFED7B1"/>
@@ -194,7 +178,7 @@
             </ListView.Background>
             <ListView.ItemsPanel>
                 <ItemsPanelTemplate>
-                    <WrapPanel Orientation="Horizontal" VerticalAlignment="Top"/>
+                    <UniformGrid Columns="2"/>
                 </ItemsPanelTemplate>
             </ListView.ItemsPanel>
             <ListView.ItemTemplate>
@@ -203,11 +187,12 @@
                         BorderThickness="2"
                         Margin="10 10 2 10"
                         Width="600">
-                        <StackPanel Orientation="Horizontal"
+                        <StackPanel
                                     VerticalAlignment="Center"
                                     Margin="10"
                                     Width="600"
-                                    Height="120">
+                                    Height="120"
+                                    Cursor="Hand">
                             <StackPanel Orientation="Vertical"
                                         HorizontalAlignment="Left">
                                 <TextBlock Text="{Binding Name}"
@@ -270,6 +255,6 @@
                     </Border>
                 </DataTemplate>
             </ListView.ItemTemplate>
-        </ListView>-->
+        </ListView>
     </Grid>
 </Page>

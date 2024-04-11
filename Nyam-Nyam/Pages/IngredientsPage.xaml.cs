@@ -46,5 +46,18 @@ namespace Nyam_Nyam.Pages
         //        NavigationService.Navigate(new RecipeForSelectedDishPage(IngredientsLV.SelectedItem as Ingredient));
         //    }
         //}
+
+        private void Hyperlink_Click(object sender, System.Windows.Navigation.RequestNavigateEventArgs e)
+        {
+
+        }
+        private void MinusBtn_Click(object sender, System.Windows.Navigation.RequestNavigateEventArgs e)
+        {
+
+        }
+        private void PlusBtn_Click(object sender, System.Windows.Navigation.RequestNavigateEventArgs e)
+        {
+
+        }
     }
 }
