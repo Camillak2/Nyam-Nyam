@@ -184,8 +184,8 @@
             </ListView.ItemsPanel>
             <ListView.ItemTemplate>
                 <DataTemplate>
-                    <Grid Height="400"
-                          Width="500">
+                    <Grid Height="300"
+                          Width="600">
                         <Image Source="{Binding Image}" Width="400" Margin="3"
                                Stretch="Fill"/>
                         <Rectangle Fill="Black"
