@@ -2,7 +2,7 @@
 
 namespace Nyam_Nyam.DB
 {
-    internal class GetAvailableDishesResult
+    public partial class GetAvailableDishesResult
     {
         public int dish_id { get; set; }
         public string dish_name { get; set; }

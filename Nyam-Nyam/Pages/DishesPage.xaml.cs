@@ -65,5 +65,29 @@ namespace Nyam_Nyam.Pages
                 Refresh();
             }
         }
+
+        private void IngredientChBx_Checked(object sender, RoutedEventArgs e)
+        {
+            if (IngredientChBx.IsChecked == true)
+            {
+                DishesLV.ItemsSource = DBConnection.nyamNyam.Dish.Where(x => x.Available == true).ToList();
+            }
+            else
+            {
+                DishesLV.ItemsSource = dishes;
+            }
+        }
+
+        private void IngredientChBx_Unchecked(object sender, RoutedEventArgs e)
+        {
+            if (IngredientChBx.IsChecked == false)
+            {
+                DishesLV.ItemsSource = DBConnection.nyamNyam.Dish.ToList();
+            }
+            else
+            {
+                DishesLV.ItemsSource = dishes;
+            }
+        }
     }
 }

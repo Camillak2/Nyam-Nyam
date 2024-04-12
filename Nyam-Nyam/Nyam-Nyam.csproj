@@ -71,6 +71,10 @@
     <Compile Include="DB\Partials\Dish.cs" />
     <Compile Include="DB\Partials\IngredientOfStage.cs" />
     <Compile Include="Service\CheckAvailableDishes.cs" />
+    <Compile Include="Service\CostForDishByIngredients.cs" />
+    <Compile Include="Service\IngredientToColorConverter.cs" />
+    <Compile Include="Service\PriceInCostNow.cs" />
+    <Compile Include="Service\StepRecips.cs" />
     <Page Include="MainWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
@@ -229,6 +233,33 @@
       <DependentUpon>Model1.edmx</DependentUpon>
       <LastGenOutput>Model1.cs</LastGenOutput>
     </Content>
+    <Resource Include="Images\AnchovyFillets.jpg" />
+    <Resource Include="Images\Asparagus.jpg" />
+    <Resource Include="Images\BalsamicVinegar.jpg" />
+    <Resource Include="Images\Beet.jpg" />
+    <Resource Include="Images\DijonMustard.jpg" />
+    <Resource Include="Images\EggYolk.jpg" />
+    <Resource Include="Images\Fettuccine.jpg" />
+    <Resource Include="Images\LemonJuice.jpg" />
+    <Resource Include="Images\MascarponeСheese.jpg" />
+    <Resource Include="Images\OnionPowder.jpg" />
+    <Resource Include="Images\Parmigiano-ReggianoCheese.jpg" />
+    <Resource Include="Images\Scallop.jpeg" />
+    <Resource Include="Images\Avocado.jpg" />
+    <Resource Include="Images\ChickenStock.jpg" />
+    <Resource Include="Images\CornTortillas.jpg" />
+    <Resource Include="Images\Crouton.jpg" />
+    <Resource Include="Images\Cucumber.jpg" />
+    <Resource Include="Images\FreshCilantro.jpg" />
+    <Resource Include="Images\FreshMint.jpg" />
+    <Resource Include="Images\Honey.jpg" />
+    <Resource Include="Images\JalapenoPeppers.jpg" />
+    <Resource Include="Images\KaleLeaves.jpg" />
+    <Resource Include="Images\LemonZest.jpeg" />
+    <Resource Include="Images\LimeJuice.jpg" />
+    <Resource Include="Images\SalmonSteak.jpg" />
+    <Resource Include="Images\Shallot.jpeg" />
+    <Resource Include="Images\Tomato.jpg" />
     <Resource Include="Images\Beef.jpg" />
     <Resource Include="Images\Garlic.jpg" />
     <Resource Include="Images\Ketchup.jpeg" />

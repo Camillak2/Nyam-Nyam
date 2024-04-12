@@ -9,8 +9,7 @@
       d:DesignHeight="784" d:DesignWidth="1340"
       Title="DishesPage">
     <Page.Resources>
-        <converters:DishColorConverter x:Key="ImageKey">
-        </converters:DishColorConverter>
+        <converters:DishColorConverter x:Key="ImageKey"/>
     </Page.Resources>
 
     <Grid Background="#fed7c1">
@@ -73,16 +72,23 @@
         </StackPanel>
 
         <CheckBox
+            x:Name="IngredientChBx"
             Grid.Column="0"
-            Grid.Row="0"
-            Margin="20 180 0 0"
-            HorizontalAlignment="Left"
-            VerticalAlignment="Top"
-            Content="Show only dishes with available ingredients">
+            Grid.Row="0" 
+            Margin="20 0 0 40"            
+            VerticalAlignment="Bottom"
+            HorizontalAlignment="Left" Checked="IngredientChBx_Checked" Unchecked="IngredientChBx_Unchecked">
             <CheckBox.LayoutTransform>
-                <ScaleTransform ScaleX="1" ScaleY="1"/>
+                <ScaleTransform ScaleX="1.8" ScaleY="1.8" />
             </CheckBox.LayoutTransform>
         </CheckBox>
+        <TextBlock
+            Grid.Column="0"
+            Grid.Row="0"
+            Text="Show only dishes with avalable ingredients"
+            Margin="60 0 0 38"
+            VerticalAlignment="Bottom"
+            HorizontalAlignment="Left"/>
 
         <StackPanel Grid.Column="1"
                     Grid.Row="0"
@@ -137,19 +143,16 @@
                     <WrapPanel Orientation="Horizontal" VerticalAlignment="Top"/>
                 </ItemsPanelTemplate>
             </ListView.ItemsPanel>
-
             <ListView.ItemTemplate>
                 <DataTemplate>
                     <Grid Height="400"
                           Width="400"
                           Margin="5">
                         <Image Width="400" Margin="3"
-                               Stretch="Fill"
-                               Source="{Binding Image}">
-                            <!--<Image.Source>
-                                <FormatConvertedBitmap Source="{Binding Image}"
-                                                           DestinationFormat="{Binding ., Converter={StaticResource ImageKey}}"></FormatConvertedBitmap>
-                            </Image.Source>-->
+                               Stretch="Fill">
+                            <Image.Source>
+                                <FormatConvertedBitmap Source="{Binding Image}" DestinationFormat="{Binding ., Converter={StaticResource ImageKey}}"></FormatConvertedBitmap>
+                            </Image.Source>
                         </Image>
                         <Rectangle Fill="Black"
                                    Opacity="0.3"

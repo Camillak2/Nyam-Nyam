@@ -23,7 +23,7 @@
                VerticalAlignment="Top"/>
         
         <StackPanel Grid.Row="0"
-                Margin="470 100 0 0"
+                Margin="600 100 0 0"
                 Height="60"
                 VerticalAlignment="Top"
                 Orientation="Horizontal"
@@ -215,30 +215,34 @@
                                     HorizontalAlignment="Right"
                                     Margin="5">
                             <TextBlock x:Name="UnitTB"
-                                           Width="50"
-                                           Height="30"
-                                           FontSize="20"
-                                           VerticalAlignment="Center"
-                                           HorizontalAlignment="Right"/>
+                                       Width="50"
+                                       Height="30"
+                                       FontSize="20"
+                                       VerticalAlignment="Center"
+                                       HorizontalAlignment="Right"
+                                       Foreground="White"/>
                             <TextBlock Text="{Binding Unit.Name}" FontSize="20"
-                                           VerticalAlignment="Center"
-                                           HorizontalAlignment="Right"/>
+                                       VerticalAlignment="Center"
+                                       HorizontalAlignment="Right"
+                                       Foreground="White"/>
                             <StackPanel Orientation="Vertical"
-                                            VerticalAlignment="Center"
-                                            HorizontalAlignment="Right">
+                                        VerticalAlignment="Center"
+                                        HorizontalAlignment="Right">
                                 <Button Margin="5"
                                         Height="40"
                                         Width="40">
                                     <TextBlock Text="+"
-                                                   VerticalAlignment="Center"
-                                                   HorizontalAlignment="Center"/>
+                                        VerticalAlignment="Center"
+                                        HorizontalAlignment="Center"
+                                        Foreground="White"/>
                                 </Button>
                                 <Button Margin="5"
                                         Height="40"
                                         Width="40">
                                     <TextBlock Text="-"
-                                                   VerticalAlignment="Center"
-                                                   HorizontalAlignment="Center"/>
+                                        VerticalAlignment="Center"
+                                        HorizontalAlignment="Center"
+                                        Foreground="White"/>
                                 </Button>
                             </StackPanel>
                         </StackPanel>
