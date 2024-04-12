@@ -229,6 +229,40 @@
       <DependentUpon>Model1.edmx</DependentUpon>
       <LastGenOutput>Model1.cs</LastGenOutput>
     </Content>
+    <Resource Include="Images\Beef.jpg" />
+    <Resource Include="Images\Garlic.jpg" />
+    <Resource Include="Images\Ketchup.jpeg" />
+    <Resource Include="Images\Onion.jpg" />
+    <Resource Include="Images\Parsley.jpg" />
+    <Resource Include="Images\Pepper.jpg" />
+    <Resource Include="Images\PreparedMustard.jpeg" />
+    <Resource Include="Images\SeashellPasta.jpg" />
+    <Resource Include="Images\BreadCrumbs.jpg" />
+    <Resource Include="Images\BrownSugar.jpg" />
+    <Resource Include="Images\ChickenBreast.jpg" />
+    <Resource Include="Images\GarlicPowder.jpg" />
+    <Resource Include="Images\GroundCinnamon.jpg" />
+    <Resource Include="Images\GroundNutmeg.jpg" />
+    <Resource Include="Images\ItalianSeasoning.jpg" />
+    <Resource Include="Images\Lemon-pepperSeasoning.jpg" />
+    <Resource Include="Images\MapleSyrup.jpg" />
+    <Resource Include="Images\MozzarellaCheese.jpg" />
+    <Resource Include="Images\OliveOil.jpg" />
+    <Resource Include="Images\ParmesanCheese.jpg" />
+    <Resource Include="Images\Pear.jpg" />
+    <Resource Include="Images\PuffPastry.jpg" />
+    <Resource Include="Images\TomatoSauce.jpg" />
+    <Resource Include="Images\VanillaExtract.jpg" />
+    <Resource Include="Images\HeavyCream.jpg" />
+    <Resource Include="Images\CayennePepper.jpg" />
+    <Resource Include="Images\Butter.jpg" />
+    <Resource Include="Images\DarkChocolate.jpg" />
+    <Resource Include="Images\Egg.jpg" />
+    <Resource Include="Images\Lemon.jpg" />
+    <Resource Include="Images\WhiteSugar.jpeg" />
+    <Resource Include="Images\WholeMilk.jpg" />
+    <Resource Include="Images\DarkChocolateChips.jpg" />
+    <Resource Include="Images\Water.jpg" />
     <Resource Include="Images\Paprika.jpg" />
     <Resource Include="Images\Flour.jpg" />
     <Resource Include="Images\Lard.jpg" />
