@@ -5,17 +5,15 @@ using System.Globalization;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using System.Windows.Data;
-using System.Windows.Media;
 
 namespace Nyam_Nyam.Converters
 {
-    public class DishColorConverter : IValueConverter
+    public class RadioButtonColorConverter
     {
         public object Convert(object value, Type targetType, object parameter, CultureInfo culture)
         {
-            Dish dish = value as Dish;
-            return (bool)dish.Available ? PixelFormats.Pbgra32 : PixelFormats.Gray8;
+            IngredientOfStage stage = (IngredientOfStage)value;
+            return stage.ColorRadioButtom ? "Green" : "Red";
         }
 
         public object ConvertBack(object value, Type targetType, object parameter, CultureInfo culture)

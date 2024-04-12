@@ -14,22 +14,25 @@ namespace Nyam_Nyam.Service
             List<Dish> dishes = DBConnection.nyamNyam.Dish.ToList();
             for (int i = 0; i < dishes.Count; i++)
             {
-                dishes[i].Availble = true;
+                dishes[i].Available = true;
                 int id = dishes[i].Id;
                 List<CookingStage> cookingStages = DBConnection.nyamNyam.CookingStage.Where(x => x.DishId == id).ToList();
                 List<IngredientOfStage> ingredientOfStages = new List<IngredientOfStage>(0);
                 for (int j = 0; j < cookingStages.Count; j++)
+
                 {
                     int stageId = cookingStages[j].Id;
-                    IngredientOfStage temp = DBConnection.nyamNyam.IngredientOfStage.FirstOrDefault(x => x.CookingStageId == stageId);
-                    if (temp != null
-                        ingredientOfStages.Add(temp);
+                    List<IngredientOfStage> temp = DBConnection.nyamNyam.IngredientOfStage.Where(x => x.CookingStageId == stageId).ToList();
+                    for (int k = 0; k < temp.Count; k++)
+                    {
+                        ingredientOfStages.Add(temp[k]);
+                    }
                 }
                 for (int j = 0; j < ingredientOfStages.Count; j++)
                 {
-                    if (ingredientOfStages[j].Ingredient.AvailableCount < ingredientOfStages[j].Quantity)
+                    if (ingredientOfStages[j].Ingredient.AvailableCount < ingredientOfStages.Where(x => x.IngredientId == ingredientOfStages[j].IngredientId).Sum(x => x.Quantity))
                     {
-                        dishes[i].Availble = false;
+                        dishes[i].Available = false;
                     }
                 }
             }

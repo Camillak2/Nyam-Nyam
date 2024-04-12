@@ -83,6 +83,11 @@
             <Setter Property="Foreground" Value="#51444c"/>
         </Style>
 
+        <Style TargetType="Hyperlink">
+            <Setter Property="FontSize" Value="20"/>
+            <Setter Property="Foreground" Value="#51444c"/>
+        </Style>
+
         <Style TargetType="ComboBox">
             <Setter Property="Foreground" Value="#51444c"/>
             <Setter Property="Background" Value="#eed4fe"/>

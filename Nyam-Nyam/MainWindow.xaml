@@ -54,7 +54,8 @@
                                HorizontalAlignment="Center"
                                 FontSize="30">
                         <Hyperlink NavigateUri="DishesPage"
-                            RequestNavigate="Hyperlink_RequestNavigate">Dishes</Hyperlink>
+                            RequestNavigate="Hyperlink_RequestNavigate"
+                            >Dishes</Hyperlink>
                     </TextBlock>
                 </StackPanel>
                 

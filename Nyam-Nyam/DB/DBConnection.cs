@@ -11,5 +11,6 @@ namespace Nyam_Nyam.DB
         public static NyamNyam_SagdievaEntities nyamNyam = new NyamNyam_SagdievaEntities();
 
         public static Dish selectedDish;
+        public static Ingredient selectedIngredient;
     }
 }

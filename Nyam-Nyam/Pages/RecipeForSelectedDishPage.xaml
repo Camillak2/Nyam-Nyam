@@ -7,6 +7,9 @@
       mc:Ignorable="d" 
       d:DesignHeight="784" d:DesignWidth="1350"
       Title="RecipeForSelectedDishPage">
+    <Page.Resources>
+        
+    </Page.Resources>
 
     <Grid Background="#fed7c1">
         <Grid.ColumnDefinitions>
@@ -162,7 +165,13 @@
                             <GridViewColumn Header="" Width="27">
                                 <GridViewColumn.CellTemplate>
                                     <DataTemplate>
-                                        <RadioButton />
+                                        <Border CornerRadius="20"
+                                            Name="Border"
+                                            Width="15"
+                                            Height="15"
+                                            BorderThickness="1"
+                                            BorderBrush="Black"
+                                            Background="{Binding ., Converter={StaticResource RadioButtonColor}}"/>
                                     </DataTemplate>
                                 </GridViewColumn.CellTemplate>
                             </GridViewColumn>

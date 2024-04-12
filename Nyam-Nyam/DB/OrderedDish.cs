@@ -20,7 +20,7 @@ namespace Nyam_Nyam.DB
         public Nullable<System.DateTime> StartCookingDT { get; set; }
         public Nullable<System.DateTime> EndCookingDT { get; set; }
     
-        public virtual Dish Dish { get; set; }
         public virtual Order Order { get; set; }
+        public virtual Dish Dish { get; set; }
     }
 }

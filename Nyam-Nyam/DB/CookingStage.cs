@@ -25,8 +25,8 @@ namespace Nyam_Nyam.DB
         public string ProcessDescription { get; set; }
         public Nullable<int> TimeInMinutes { get; set; }
     
-        public virtual Dish Dish { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<IngredientOfStage> IngredientOfStage { get; set; }
+        public virtual Dish Dish { get; set; }
     }
 }

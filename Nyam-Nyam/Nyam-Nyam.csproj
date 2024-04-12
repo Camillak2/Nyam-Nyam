@@ -64,10 +64,13 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="Converters\DishColorConverter.cs" />
+    <Compile Include="Converters\RadioButtonColorConverter.cs" />
     <Compile Include="DB\GetAvailableDishesResult.cs" />
     <Compile Include="DB\GetIngredientsForSelectDishResult.cs" />
+    <Compile Include="DB\Partials\Dish.cs" />
+    <Compile Include="DB\Partials\IngredientOfStage.cs" />
     <Compile Include="Service\CheckAvailableDishes.cs" />
-    <Compile Include="Service\IngredientToColorConverter.cs" />
     <Page Include="MainWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
@@ -76,7 +79,6 @@
       <DependentUpon>App.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Converters\DishColorConverter.cs" />
     <Compile Include="DB\Category.cs">
       <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
@@ -90,10 +92,6 @@
     <Compile Include="DB\Dish.cs">
       <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
-    <Compile Include="DB\Factories\DishCookPosibilityChecker.cs" />
-    <Compile Include="DB\Factories\EnumeratedDishStage.cs" />
-    <Compile Include="DB\Factories\ExtendedIngredient.cs" />
-    <Compile Include="DB\Factories\IngredientToIngredientWithAvailabilityConverter.cs" />
     <Compile Include="DB\Ingredient.cs">
       <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
@@ -231,6 +229,21 @@
       <DependentUpon>Model1.edmx</DependentUpon>
       <LastGenOutput>Model1.cs</LastGenOutput>
     </Content>
+    <Resource Include="Images\1.jpg" />
+    <Resource Include="Images\10.jpeg" />
+    <Resource Include="Images\11.jpeg" />
+    <Resource Include="Images\12.jpeg" />
+    <Resource Include="Images\13.jpeg" />
+    <Resource Include="Images\14.jpeg" />
+    <Resource Include="Images\15.jpg" />
+    <Resource Include="Images\2.jpeg" />
+    <Resource Include="Images\3.jpg" />
+    <Resource Include="Images\4.jpeg" />
+    <Resource Include="Images\5.jpeg" />
+    <Resource Include="Images\6.jpeg" />
+    <Resource Include="Images\7.jpeg" />
+    <Resource Include="Images\8.jpeg" />
+    <Resource Include="Images\9.jpeg" />
     <Resource Include="Images\Black\1.jpg" />
     <Resource Include="Images\Black\10.jpeg" />
     <Resource Include="Images\Black\11.jpeg" />

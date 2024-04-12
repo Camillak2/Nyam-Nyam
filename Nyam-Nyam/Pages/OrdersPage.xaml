@@ -9,6 +9,31 @@
       Title="OrdersPage">
 
     <Grid Background="#fed7c1">
-        <TextBlock Text="ccc"/>
+        <Border BorderBrush="Black"
+                VerticalAlignment="Top"
+                BorderThickness="1"
+                Grid.RowSpan="5"
+                Grid.Column="1"
+                Height="784"
+                Width="1350"
+                HorizontalAlignment="Left">
+            <Grid>
+                <Image Source="/Images/logo.png"
+                    Width="580"
+                    Height="580"
+                    HorizontalAlignment="Center"
+                    VerticalAlignment="Top"
+                    Margin="0 20 0 0"/>
+                <TextBlock Text="Welcome to Nyam Nyam!"
+                           FontSize="100"
+                           HorizontalAlignment="Center"
+                           VerticalAlignment="Bottom"
+                           Margin="0 0 0 40"/>
+                <Frame x:Name="NaFr"
+                    Grid.Column="1"
+                    Grid.RowSpan="5"
+                    NavigationUIVisibility="Hidden"/>
+            </Grid>
+        </Border>
     </Grid>
 </Page>
