@@ -163,6 +163,7 @@
                   Margin="18 10 18 10"
                   Width="1300"
                   Height="480"
+                  d:ItemsSource="{d:SampleData ItemCount=10}"
                   ScrollViewer.HorizontalScrollBarVisibility="Disabled"
                   ScrollViewer.VerticalScrollBarVisibility="Auto"
                   ItemsSource="{Binding Ingredient}"
@@ -178,10 +179,37 @@
             </ListView.Background>
             <ListView.ItemsPanel>
                 <ItemsPanelTemplate>
-                    <UniformGrid Columns="2"/>
+                    <WrapPanel Orientation="Horizontal" VerticalAlignment="Top"/>
                 </ItemsPanelTemplate>
             </ListView.ItemsPanel>
             <ListView.ItemTemplate>
+                <DataTemplate>
+                    <Grid Height="400"
+                          Width="500">
+                        <Image Source="{Binding Image}" Width="400" Margin="3"
+                               Stretch="Fill"/>
+                        <Rectangle Fill="Black"
+                                   Opacity="0.3"
+                                   VerticalAlignment="Bottom"
+                                   Height="120"/>
+                        <StackPanel Orientation="Vertical"
+                                        HorizontalAlignment="Center"
+                                        VerticalAlignment="Bottom"
+                                        Margin="0 0 0 25">
+                            <TextBlock Text="{Binding Name}"
+                                       HorizontalAlignment="Center"
+                                       Foreground="White"
+                                       TextWrapping="Wrap"
+                                       TextAlignment="Center"
+                                       FontSize="24"/>
+                            <TextBlock Text="{Binding FinalPriceInCents, StringFormat='1 portion = {0}$'}" FontSize="20"
+                                       Foreground="White"
+                                       HorizontalAlignment="Center"/>
+                        </StackPanel>
+                    </Grid>
+                </DataTemplate>
+            </ListView.ItemTemplate>
+            <!--<ListView.ItemTemplate>
                 <DataTemplate>
                     <Border BorderBrush="#fdb249"
                         BorderThickness="2"
@@ -254,7 +282,7 @@
                         </StackPanel>
                     </Border>
                 </DataTemplate>
-            </ListView.ItemTemplate>
+            </ListView.ItemTemplate>-->
         </ListView>
     </Grid>
 </Page>
