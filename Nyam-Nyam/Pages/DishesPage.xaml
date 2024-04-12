@@ -9,7 +9,7 @@
       d:DesignHeight="784" d:DesignWidth="1340"
       Title="DishesPage">
     <Page.Resources>
-        <converters:DishColorConverter x:Key="ImageKey"/>
+        <converters:DishColorConverter/>
     </Page.Resources>
 
     <Grid Background="#fed7c1">
