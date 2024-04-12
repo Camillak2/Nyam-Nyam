@@ -229,6 +229,15 @@
       <DependentUpon>Model1.edmx</DependentUpon>
       <LastGenOutput>Model1.cs</LastGenOutput>
     </Content>
+    <Resource Include="Images\Paprika.jpg" />
+    <Resource Include="Images\Flour.jpg" />
+    <Resource Include="Images\Lard.jpg" />
+    <Resource Include="Images\BakingPowder.jpg" />
+    <Resource Include="Images\creamCheese.jpg" />
+    <Resource Include="Images\Salt.jpg" />
+    <Resource Include="Images\cheddarCheese.jpg" />
+    <Resource Include="Images\scallion.jpg" />
+    <Resource Include="Images\buttonMushrooms.jpg" />
     <Resource Include="Images\1.jpg" />
     <Resource Include="Images\10.jpeg" />
     <Resource Include="Images\11.jpeg" />

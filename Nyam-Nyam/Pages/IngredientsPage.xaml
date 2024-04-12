@@ -184,27 +184,63 @@
             </ListView.ItemsPanel>
             <ListView.ItemTemplate>
                 <DataTemplate>
-                    <Grid Height="300"
-                          Width="600">
-                        <Image Source="{Binding Image}" Width="400" Margin="3"
-                               Stretch="Fill"/>
+                    <Grid Height="200"
+                          Width="615"
+                          Margin="5">
+                        <Image
+                               Stretch="Fill"
+                               Source="{Binding Image}"/>
                         <Rectangle Fill="Black"
                                    Opacity="0.3"
                                    VerticalAlignment="Bottom"
-                                   Height="120"/>
+                                   Height="200"/>
                         <StackPanel Orientation="Vertical"
-                                        HorizontalAlignment="Center"
-                                        VerticalAlignment="Bottom"
-                                        Margin="0 0 0 25">
+                                        HorizontalAlignment="Left"
+                                        VerticalAlignment="Center"
+                                        Margin="10">
                             <TextBlock Text="{Binding Name}"
-                                       HorizontalAlignment="Center"
-                                       Foreground="White"
-                                       TextWrapping="Wrap"
-                                       TextAlignment="Center"
-                                       FontSize="24"/>
-                            <TextBlock Text="{Binding FinalPriceInCents, StringFormat='1 portion = {0}$'}" FontSize="20"
-                                       Foreground="White"
-                                       HorizontalAlignment="Center"/>
+                                   HorizontalAlignment="Left"
+                                   Foreground="White"
+                                   TextWrapping="Wrap"
+                                   TextAlignment="Center"
+                                   FontSize="24"/>
+                            <TextBlock Text="{Binding CostInCents, StringFormat='Price: {0}$'}" FontSize="20"
+                                   Foreground="White"
+                                   HorizontalAlignment="Left"/>
+                            <TextBlock>
+                                <Hyperlink Style="{StaticResource DeleteKey}">Delete</Hyperlink>
+                            </TextBlock>
+                        </StackPanel>
+                        <StackPanel Orientation="Horizontal"
+                                    HorizontalAlignment="Right"
+                                    Margin="5">
+                            <TextBlock x:Name="UnitTB"
+                                           Width="50"
+                                           Height="30"
+                                           FontSize="20"
+                                           VerticalAlignment="Center"
+                                           HorizontalAlignment="Right"/>
+                            <TextBlock Text="{Binding Unit.Name}" FontSize="20"
+                                           VerticalAlignment="Center"
+                                           HorizontalAlignment="Right"/>
+                            <StackPanel Orientation="Vertical"
+                                            VerticalAlignment="Center"
+                                            HorizontalAlignment="Right">
+                                <Button Margin="5"
+                                        Height="40"
+                                        Width="40">
+                                    <TextBlock Text="+"
+                                                   VerticalAlignment="Center"
+                                                   HorizontalAlignment="Center"/>
+                                </Button>
+                                <Button Margin="5"
+                                        Height="40"
+                                        Width="40">
+                                    <TextBlock Text="-"
+                                                   VerticalAlignment="Center"
+                                                   HorizontalAlignment="Center"/>
+                                </Button>
+                            </StackPanel>
                         </StackPanel>
                     </Grid>
                 </DataTemplate>

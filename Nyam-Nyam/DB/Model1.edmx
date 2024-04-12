@@ -53,6 +53,7 @@
           <Property Name="CostInCents" Type="int" Nullable="false" />
           <Property Name="UnitId" Type="int" Nullable="false" />
           <Property Name="AvailableCount" Type="float" Nullable="false" />
+          <Property Name="Image" Type="nvarchar" MaxLength="100" />
         </EntityType>
         <EntityType Name="IngredientOfStage">
           <Key>
@@ -275,18 +276,6 @@
           <NavigationProperty Name="IngredientOfStage" Relationship="Self.FK_IngredientOfStage_CookingStage1" FromRole="CookingStage" ToRole="IngredientOfStage" />
           <NavigationProperty Name="Dish" Relationship="NyamNyam_SagdievaModel.FK_CookingStage_Dish1" FromRole="CookingStage" ToRole="Dish" />
         </EntityType>
-        <EntityType Name="Ingredient">
-          <Key>
-            <PropertyRef Name="Id" />
-          </Key>
-          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="Name" Type="String" MaxLength="100" FixedLength="false" Unicode="true" Nullable="false" />
-          <Property Name="CostInCents" Type="Int32" Nullable="false" />
-          <Property Name="UnitId" Type="Int32" Nullable="false" />
-          <Property Name="AvailableCount" Type="Double" Nullable="false" />
-          <NavigationProperty Name="Unit" Relationship="Self.FK_Ingredient_Unit" FromRole="Ingredient" ToRole="Unit" />
-          <NavigationProperty Name="IngredientOfStage" Relationship="Self.FK_IngredientOfStage_Ingredient" FromRole="Ingredient" ToRole="IngredientOfStage" />
-        </EntityType>
         <EntityType Name="IngredientOfStage">
           <Key>
             <PropertyRef Name="CookingStageId" />
@@ -296,7 +285,7 @@
           <Property Name="IngredientId" Type="Int32" Nullable="false" />
           <Property Name="Quantity" Type="Double" Nullable="false" />
           <NavigationProperty Name="CookingStage" Relationship="Self.FK_IngredientOfStage_CookingStage1" FromRole="IngredientOfStage" ToRole="CookingStage" />
-          <NavigationProperty Name="Ingredient" Relationship="Self.FK_IngredientOfStage_Ingredient" FromRole="IngredientOfStage" ToRole="Ingredient" />
+          <NavigationProperty Name="Ingredient" Relationship="NyamNyam_SagdievaModel.FK_IngredientOfStage_Ingredient" FromRole="IngredientOfStage" ToRole="Ingredient" />
         </EntityType>
         <EntityType Name="Order">
           <Key>
@@ -340,7 +329,7 @@
           <Property Name="Id" Type="Int32" Nullable="false" />
           <Property Name="Name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
           <Property Name="ShortName" Type="String" MaxLength="5" FixedLength="false" Unicode="true" />
-          <NavigationProperty Name="Ingredient" Relationship="Self.FK_Ingredient_Unit" FromRole="Unit" ToRole="Ingredient" />
+          <NavigationProperty Name="Ingredient" Relationship="NyamNyam_SagdievaModel.FK_Ingredient_Unit" FromRole="Unit" ToRole="Ingredient" />
         </EntityType>
         <Association Name="FK_Order_Client">
           <End Role="Client" Type="Self.Client" Multiplicity="1" />
@@ -366,30 +355,6 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK_Ingredient_Unit">
-          <End Role="Unit" Type="Self.Unit" Multiplicity="1" />
-          <End Role="Ingredient" Type="Self.Ingredient" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="Unit">
-              <PropertyRef Name="Id" />
-            </Principal>
-            <Dependent Role="Ingredient">
-              <PropertyRef Name="UnitId" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK_IngredientOfStage_Ingredient">
-          <End Role="Ingredient" Type="Self.Ingredient" Multiplicity="1" />
-          <End Role="IngredientOfStage" Type="Self.IngredientOfStage" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="Ingredient">
-              <PropertyRef Name="Id" />
-            </Principal>
-            <Dependent Role="IngredientOfStage">
-              <PropertyRef Name="IngredientId" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
         <Association Name="FK_OrderedDish_Order">
           <End Role="Order" Type="Self.Order" Multiplicity="1" />
           <End Role="OrderedDish" Type="Self.OrderedDish" Multiplicity="*" />
@@ -406,7 +371,6 @@
           <EntitySet Name="Category" EntityType="Self.Category" />
           <EntitySet Name="Client" EntityType="Self.Client" />
           <EntitySet Name="CookingStage" EntityType="Self.CookingStage" />
-          <EntitySet Name="Ingredient" EntityType="Self.Ingredient" />
           <EntitySet Name="IngredientOfStage" EntityType="Self.IngredientOfStage" />
           <EntitySet Name="Order" EntityType="Self.Order" />
           <EntitySet Name="OrderedDish" EntityType="Self.OrderedDish" />
@@ -418,14 +382,6 @@
           </AssociationSet>
           <AssociationSet Name="FK_IngredientOfStage_CookingStage1" Association="Self.FK_IngredientOfStage_CookingStage1">
             <End Role="CookingStage" EntitySet="CookingStage" />
-            <End Role="IngredientOfStage" EntitySet="IngredientOfStage" />
-          </AssociationSet>
-          <AssociationSet Name="FK_Ingredient_Unit" Association="Self.FK_Ingredient_Unit">
-            <End Role="Unit" EntitySet="Unit" />
-            <End Role="Ingredient" EntitySet="Ingredient" />
-          </AssociationSet>
-          <AssociationSet Name="FK_IngredientOfStage_Ingredient" Association="Self.FK_IngredientOfStage_Ingredient">
-            <End Role="Ingredient" EntitySet="Ingredient" />
             <End Role="IngredientOfStage" EntitySet="IngredientOfStage" />
           </AssociationSet>
           <AssociationSet Name="FK_OrderedDish_Order" Association="Self.FK_OrderedDish_Order">
@@ -444,6 +400,15 @@
           <AssociationSet Name="FK_OrderedDish_Dish" Association="NyamNyam_SagdievaModel.FK_OrderedDish_Dish">
             <End Role="Dish" EntitySet="Dish" />
             <End Role="OrderedDish" EntitySet="OrderedDish" />
+          </AssociationSet>
+          <EntitySet Name="Ingredient" EntityType="NyamNyam_SagdievaModel.Ingredient" />
+          <AssociationSet Name="FK_Ingredient_Unit" Association="NyamNyam_SagdievaModel.FK_Ingredient_Unit">
+            <End Role="Unit" EntitySet="Unit" />
+            <End Role="Ingredient" EntitySet="Ingredient" />
+          </AssociationSet>
+          <AssociationSet Name="FK_IngredientOfStage_Ingredient" Association="NyamNyam_SagdievaModel.FK_IngredientOfStage_Ingredient">
+            <End Role="Ingredient" EntitySet="Ingredient" />
+            <End Role="IngredientOfStage" EntitySet="IngredientOfStage" />
           </AssociationSet>
         </EntityContainer>
         <EntityType Name="Dish">
@@ -499,6 +464,43 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
+        <EntityType Name="Ingredient">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Name" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="CostInCents" Type="Int32" Nullable="false" />
+          <Property Name="UnitId" Type="Int32" Nullable="false" />
+          <Property Name="AvailableCount" Type="Double" Nullable="false" />
+          <Property Name="Image" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="Unit" Relationship="NyamNyam_SagdievaModel.FK_Ingredient_Unit" FromRole="Ingredient" ToRole="Unit" />
+          <NavigationProperty Name="IngredientOfStage" Relationship="NyamNyam_SagdievaModel.FK_IngredientOfStage_Ingredient" FromRole="Ingredient" ToRole="IngredientOfStage" />
+        </EntityType>
+        <Association Name="FK_Ingredient_Unit">
+          <End Type="NyamNyam_SagdievaModel.Unit" Role="Unit" Multiplicity="1" />
+          <End Type="NyamNyam_SagdievaModel.Ingredient" Role="Ingredient" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Unit">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Ingredient">
+              <PropertyRef Name="UnitId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_IngredientOfStage_Ingredient">
+          <End Type="NyamNyam_SagdievaModel.Ingredient" Role="Ingredient" Multiplicity="1" />
+          <End Type="NyamNyam_SagdievaModel.IngredientOfStage" Role="IngredientOfStage" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Ingredient">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="IngredientOfStage">
+              <PropertyRef Name="IngredientId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
       </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
@@ -530,17 +532,6 @@
                 <ScalarProperty Name="DishId" ColumnName="DishId" />
                 <ScalarProperty Name="ProcessDescription" ColumnName="ProcessDescription" />
                 <ScalarProperty Name="TimeInMinutes" ColumnName="TimeInMinutes" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
-          <EntitySetMapping Name="Ingredient">
-            <EntityTypeMapping TypeName="NyamNyam_SagdievaModel.Ingredient">
-              <MappingFragment StoreEntitySet="Ingredient">
-                <ScalarProperty Name="Id" ColumnName="Id" />
-                <ScalarProperty Name="Name" ColumnName="Name" />
-                <ScalarProperty Name="CostInCents" ColumnName="CostInCents" />
-                <ScalarProperty Name="UnitId" ColumnName="UnitId" />
-                <ScalarProperty Name="AvailableCount" ColumnName="AvailableCount" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
@@ -605,6 +596,18 @@
                 <ScalarProperty Name="Image" ColumnName="Image" />
                 <ScalarProperty Name="CategoryId" ColumnName="CategoryId" />
                 <ScalarProperty Name="BaseServingsQuantity" ColumnName="BaseServingsQuantity" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Ingredient">
+            <EntityTypeMapping TypeName="NyamNyam_SagdievaModel.Ingredient">
+              <MappingFragment StoreEntitySet="Ingredient">
+                <ScalarProperty Name="Image" ColumnName="Image" />
+                <ScalarProperty Name="AvailableCount" ColumnName="AvailableCount" />
+                <ScalarProperty Name="UnitId" ColumnName="UnitId" />
+                <ScalarProperty Name="CostInCents" ColumnName="CostInCents" />
                 <ScalarProperty Name="Name" ColumnName="Name" />
                 <ScalarProperty Name="Id" ColumnName="Id" />
               </MappingFragment>
