@@ -170,8 +170,20 @@
                                             Width="15"
                                             Height="15"
                                             BorderThickness="1"
-                                            BorderBrush="Black"
-                                            Background="{Binding ., Converter={StaticResource RadioButtonColor}}"/>
+                                            BorderBrush="Black">
+                                            <Border.Style>
+                                                <Style TargetType="Border">
+                                                    <Style.Triggers>
+                                                        <DataTrigger Binding="{Binding Color}" Value="False">
+                                                            <Setter Property="Background" Value="#fdb249"/>
+                                                        </DataTrigger>
+                                                        <DataTrigger  Binding="{Binding Color}" Value="True">
+                                                            <Setter Property="Background" Value="#d5c847"/>
+                                                        </DataTrigger>
+                                                    </Style.Triggers>
+                                                </Style>
+                                            </Border.Style>
+                                        </Border>
                                     </DataTemplate>
                                 </GridViewColumn.CellTemplate>
                             </GridViewColumn>

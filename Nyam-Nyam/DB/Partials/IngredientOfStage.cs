@@ -8,21 +8,26 @@ namespace Nyam_Nyam.DB
 {
     public partial class IngredientOfStage
     {
-        private bool _color;
-        public bool ColorRadioButtom
+        public double TotalQuantity { get; set; }
+        public double TotalCost { get; set; }
+
+        public bool Color
         {
             get
             {
-                return _color;
-                //if (Quantity * CookingStage.Dish.BaseServingsQuantity <= Ingredient.AvailableCount)
-                //    return true;
-                //else
-                //    return false;
+                if (TotalQuantity <= Ingredient.AvailableCount)
+                {
+                    return true;
+                }
+                else
+                {
+                    return false;
+                }
             }
-            set
-            {
-                _color = value;
-            }
+        }
+        public double SumQuantity
+        {
+            get; set;
         }
     }
 }

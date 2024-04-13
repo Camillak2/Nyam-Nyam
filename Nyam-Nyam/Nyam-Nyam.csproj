@@ -64,18 +64,11 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
-    <Compile Include="Converters\DishColorConverter.cs" />
-    <Compile Include="Converters\RadioButtonColorConverter.cs" />
     <Compile Include="DB\GetAvailableDishesResult.cs" />
     <Compile Include="DB\GetIngredientsForSelectDishResult.cs" />
     <Compile Include="DB\Partials\Dish.cs" />
     <Compile Include="DB\Partials\Ingredient.cs" />
     <Compile Include="DB\Partials\IngredientOfStage.cs" />
-    <Compile Include="Service\CheckAvailableDishes.cs" />
-    <Compile Include="Service\CostForDishByIngredients.cs" />
-    <Compile Include="Service\IngredientToColorConverter.cs" />
-    <Compile Include="Service\PriceInCostNow.cs" />
-    <Compile Include="Service\StepRecips.cs" />
     <Page Include="MainWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>

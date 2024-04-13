@@ -22,7 +22,32 @@
                         </Grid>
                         <ControlTemplate.Triggers>
                             <Trigger Property="IsPressed" Value="True">
-                                <Setter TargetName="border" Property="BorderBrush" Value="Red" />
+                                <Setter TargetName="border" Property="BorderBrush" Value="#d5c847"/>
+                            </Trigger>
+                        </ControlTemplate.Triggers>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
+
+        <Style TargetType="Button" x:Key="ListViewButton">
+            <Setter Property="FontFamily" Value="Comic Sans MS"/>
+            <Setter Property="FontSize" Value="30"/>
+            <Setter Property="Foreground" Value="#51444c"/>
+            <Setter Property="Background" Value="#eed4fe"/>
+            <Setter Property="BorderBrush" Value="#51444c"/>
+            <Setter Property="BorderThickness" Value="2"/>
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="Button">
+                        <Grid>
+                            <Border x:Name="border" BorderBrush="White" BorderThickness="1">
+                                <ContentPresenter/>
+                            </Border>
+                        </Grid>
+                        <ControlTemplate.Triggers>
+                            <Trigger Property="IsPressed" Value="True">
+                                <Setter TargetName="border" Property="BorderBrush" Value="#d5c847"/>
                             </Trigger>
                         </ControlTemplate.Triggers>
                     </ControlTemplate>

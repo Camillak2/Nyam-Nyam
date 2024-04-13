@@ -9,9 +9,35 @@ namespace Nyam_Nyam.DB
 {
     public partial class Dish
     {
-
-
-
+        public string ImageConverter
+        {
+            get
+            {
+                var destrinationFormat = string.Empty;
+                var allIngredientsRecipeSteps = this.CookingStage.SelectMany(i => i.IngredientOfStage);
+                if (allIngredientsRecipeSteps.Any())
+                {
+                    foreach (var ingredientStep  in allIngredientsRecipeSteps)
+                    {
+                        if(allIngredientsRecipeSteps.Where(i => i.IngredientId == ingredientStep.IngredientId).Sum(i => i.Quantity) > 
+                            ingredientStep.Ingredient.AvailableCount)
+                        {
+                            destrinationFormat = "Gray32Float";
+                            Available = false;
+                            DBConnection.nyamNyam.SaveChanges();
+                        }
+                    }
+                }
+                else
+                {
+                    destrinationFormat = "Bgra32";
+                    Available = true;
+                    DBConnection.nyamNyam.SaveChanges();
+                }
+                return destrinationFormat;
+            }
+        }
+        
         public double OurCost
         {
             get

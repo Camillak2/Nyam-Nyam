@@ -173,7 +173,7 @@
             <ListView.Background>
                 <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
                     <GradientStop Color="#7FFED7B1"/>
-                    <GradientStop Color="#7FFDB249" Offset="1"/>
+                    <GradientStop Color="#7FD5C847" Offset="1"/>
                     <GradientStop Color="#7FFDC47C" Offset="0.5"/>
                 </LinearGradientBrush>
             </ListView.Background>
@@ -184,25 +184,26 @@
             </ListView.ItemsPanel>
             <ListView.ItemTemplate>
                 <DataTemplate>
-                    <Grid Height="200"
-                          Width="615"
+                    <Grid Height="250"
+                          Width="400"
                           Margin="5">
                         <Image Stretch="Fill"
                                Source="{Binding Image}"/>
                         <Rectangle Fill="Black"
                                    Opacity="0.3"
                                    VerticalAlignment="Bottom"
-                                   Height="200"/>
+                                   Height="125"/>
                         <StackPanel Orientation="Vertical"
                                         HorizontalAlignment="Left"
                                         VerticalAlignment="Center"
-                                        Margin="10">
+                                        Margin="10 120 10 0">
                             <TextBlock Text="{Binding Name}"
                                    HorizontalAlignment="Left"
                                    Foreground="White"
                                    TextWrapping="Wrap"
-                                   TextAlignment="Center"
-                                   FontSize="24"/>
+                                   TextAlignment="Left"
+                                   FontSize="24"
+                                       Width="220"/>
                             <TextBlock Text="{Binding DollarsToCents, StringFormat='Price: {0}$'}"
                                        FontSize="20"
                                    Foreground="White"
@@ -213,15 +214,15 @@
                         </StackPanel>
                         <StackPanel Orientation="Horizontal"
                                     HorizontalAlignment="Right"
-                                    Margin="5">
-                            <TextBlock x:Name="UnitTB"
-                                       Width="50"
+                                    Margin="10 120 10 0">
+                            <TextBlock Width="50"
                                        Height="30"
                                        FontSize="20"
                                        VerticalAlignment="Center"
                                        HorizontalAlignment="Right"
-                                       Foreground="White"/>
-                            <TextBlock Text="{Binding Unit.Name}" FontSize="20"
+                                       Foreground="White"
+                                       Text="{Binding AvailableCount}"/>
+                            <TextBlock Text="{Binding Unit.ShortName}" FontSize="20"
                                        VerticalAlignment="Center"
                                        HorizontalAlignment="Right"
                                        Foreground="White"/>
@@ -230,7 +231,8 @@
                                         HorizontalAlignment="Right">
                                 <Button Margin="5"
                                         Height="40"
-                                        Width="40">
+                                        Width="40"
+                                        Style="{StaticResource ListViewButton}">
                                     <TextBlock Text="+"
                                         VerticalAlignment="Center"
                                         HorizontalAlignment="Center"
@@ -238,7 +240,8 @@
                                 </Button>
                                 <Button Margin="5"
                                         Height="40"
-                                        Width="40">
+                                        Width="40"
+                                        Style="{StaticResource ListViewButton}">
                                     <TextBlock Text="-"
                                         VerticalAlignment="Center"
                                         HorizontalAlignment="Center"
