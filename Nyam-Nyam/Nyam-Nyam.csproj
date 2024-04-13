@@ -69,6 +69,7 @@
     <Compile Include="DB\GetAvailableDishesResult.cs" />
     <Compile Include="DB\GetIngredientsForSelectDishResult.cs" />
     <Compile Include="DB\Partials\Dish.cs" />
+    <Compile Include="DB\Partials\Ingredient.cs" />
     <Compile Include="DB\Partials\IngredientOfStage.cs" />
     <Compile Include="Service\CheckAvailableDishes.cs" />
     <Compile Include="Service\CostForDishByIngredients.cs" />

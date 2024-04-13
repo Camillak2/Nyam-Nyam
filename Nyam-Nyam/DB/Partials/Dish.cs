@@ -9,6 +9,9 @@ namespace Nyam_Nyam.DB
 {
     public partial class Dish
     {
+
+
+
         public double OurCost
         {
             get
@@ -19,8 +22,7 @@ namespace Nyam_Nyam.DB
                 {
                     result += i.Ingredient.CostInCents * i.Quantity;
                 }
-                return result;
-
+                return result * 0.01;
             }
         }
     }
