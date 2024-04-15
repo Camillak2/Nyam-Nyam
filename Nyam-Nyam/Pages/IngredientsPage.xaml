@@ -136,14 +136,15 @@
                         <StackPanel Orientation="Horizontal"
                                     HorizontalAlignment="Right"
                                     Margin="10 125 10 0">
-                            <TextBlock Width="30"
-                                       Height="30"
-                                       FontSize="20"
-                                       VerticalAlignment="Center"
-                                       HorizontalAlignment="Right"
-                                       Foreground="White"
-                                       Text="{Binding AvailableCount}"
-                                       Margin="0 0 0 3"/>
+                            <TextBox Width="50"
+                                     Height="30"
+                                     FontSize="20"
+                                     VerticalAlignment="Center"
+                                     HorizontalAlignment="Right"
+                                     Foreground="White"
+                                     Text="{Binding AvailableCount}"
+                                     Margin="0 0 0 3"
+                                     x:Name="CountTB" TextChanged="CountTB_TextChanged"/>
                             <TextBlock Text="{Binding Unit.ShortName}" FontSize="20"
                                        VerticalAlignment="Center"
                                        HorizontalAlignment="Right"
@@ -155,7 +156,8 @@
                                 <Button Margin="5"
                                         Height="40"
                                         Width="40"
-                                        Style="{StaticResource ListViewButton}">
+                                        Style="{StaticResource ListViewButton}"
+                                        x:Name="PlusBTN" Click="PlusBTN_Click">
                                     <TextBlock Text="+"
                                         VerticalAlignment="Center"
                                         HorizontalAlignment="Center"
@@ -164,7 +166,8 @@
                                 <Button Margin="5"
                                         Height="40"
                                         Width="40"
-                                        Style="{StaticResource ListViewButton}">
+                                        Style="{StaticResource ListViewButton}"
+                                        x:Name="MinusBTN" Click="MinusBTN_Click">
                                     <TextBlock Text="-"
                                         VerticalAlignment="Center"
                                         HorizontalAlignment="Center"

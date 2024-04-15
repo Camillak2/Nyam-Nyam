@@ -22,7 +22,6 @@ namespace Nyam_Nyam.Pages
     public partial class RecipeForSelectedDishPage : Page
     {
         private int _count = 1;
-        private double _proizved = 1; 
 
         public static List<Dish> dishes { get; set; }
         public static List<Ingredient> ingredients { get; set; }
@@ -62,7 +61,7 @@ namespace Nyam_Nyam.Pages
             DishTB.Text = contextDish.Name;
             CategoryTB.Text = contextDish.Category.Name;
             DescriptionTB.Text = contextDish.Description;
-            TotalCostTB.Text = contextDish.FinalPriceInCents.ToString();
+            TotalCostTB.Text = contextDish.OurCost.ToString();
 
             var time = DBConnection.nyamNyam.CookingStage.Where(x => x.DishId == contextDish.Id).Select(i => i.TimeInMinutes).ToList();
             int itogo = (int)time.Sum();
@@ -80,8 +79,7 @@ namespace Nyam_Nyam.Pages
         {
             _count++;
             ServingsTB.Text = _count.ToString();
-            _proizved = 1;
-            TotalCostTB.Text = (contextDish.FinalPriceInCents * _count).ToString() + " $";
+            TotalCostTB.Text = (contextDish.OurCost * _count).ToString() + " $";
         }
 
         private void PlusBTN_Click(object sender, RoutedEventArgs e)
@@ -90,7 +88,7 @@ namespace Nyam_Nyam.Pages
             {
                 _count--;
                 ServingsTB.Text = _count.ToString();
-                TotalCostTB.Text = (contextDish.FinalPriceInCents / _count).ToString() + " $";
+                TotalCostTB.Text = (contextDish.OurCost * _count).ToString() + " $";
             }
             else
             {

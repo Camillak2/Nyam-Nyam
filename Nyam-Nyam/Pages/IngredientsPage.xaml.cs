@@ -26,6 +26,8 @@ namespace Nyam_Nyam.Pages
         public static Dish dish { get; set; }
         public static List<Ingredient> ingredients { get; set; }
 
+        Ingredient contextIngredient;
+
         public IngredientsPage()
         {
             InitializeComponent();
@@ -38,26 +40,43 @@ namespace Nyam_Nyam.Pages
             IngredientsLV.ItemsSource = DBConnection.nyamNyam.Ingredient.ToList();
         }
 
-        //private void DishesLV_SelectionChanged(object sender, SelectionChangedEventArgs e)
-        //{
-        //    if (IngredientsLV.SelectedItem is Ingredient)
-        //    {
-        //        DBConnection.selectedDish = IngredientsLV.SelectedItem as Ingredient;
-        //        NavigationService.Navigate(new RecipeForSelectedDishPage(IngredientsLV.SelectedItem as Ingredient));
-        //    }
-        //}
+        private void MinusBTN_Click(object sender, RoutedEventArgs e)
+        {
+            var ingredient = (sender as Button).DataContext as Ingredient;
+            try
+            {
+                if (ingredient.AvailableCount == 0)
+                    return;
+                ingredient.AvailableCount -= 1;
+                DBConnection.nyamNyam.SaveChanges();
+
+            }
+            catch
+            {
+                MessageBox.Show("Error!");
+            }
+
+            Refresh();
+        }
 
         private void Hyperlink_Click(object sender, System.Windows.Navigation.RequestNavigateEventArgs e)
         {
 
         }
-        private void MinusBtn_Click(object sender, System.Windows.Navigation.RequestNavigateEventArgs e)
-        {
 
+        private void PlusBTN_Click(object sender, RoutedEventArgs e)
+        {
+            var ingredient = (sender as Button).DataContext as Ingredient;
+            if (ingredient.AvailableCount == 99)
+                return;
+            ingredient.AvailableCount += 1;
+            DBConnection.nyamNyam.SaveChanges();
+            Refresh();
         }
-        private void PlusBtn_Click(object sender, System.Windows.Navigation.RequestNavigateEventArgs e)
-        {
 
+        private void CountTB_TextChanged(object sender, TextChangedEventArgs e)
+        {
+            DBConnection.nyamNyam.SaveChanges();
         }
     }
 }
