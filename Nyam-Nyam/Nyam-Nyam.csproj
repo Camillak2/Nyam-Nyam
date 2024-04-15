@@ -64,8 +64,7 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
-    <Compile Include="DB\GetAvailableDishesResult.cs" />
-    <Compile Include="DB\GetIngredientsForSelectDishResult.cs" />
+    <Compile Include="DB\Partials\CookingStage.cs" />
     <Compile Include="DB\Partials\Dish.cs" />
     <Compile Include="DB\Partials\Ingredient.cs" />
     <Compile Include="DB\Partials\IngredientOfStage.cs" />
@@ -192,21 +191,6 @@
   </ItemGroup>
   <ItemGroup>
     <Resource Include="Images\logo.png" />
-    <Resource Include="Images\Color\1.jpg" />
-    <Resource Include="Images\Color\10.jpeg" />
-    <Resource Include="Images\Color\11.jpeg" />
-    <Resource Include="Images\Color\12.jpeg" />
-    <Resource Include="Images\Color\13.jpeg" />
-    <Resource Include="Images\Color\14.jpeg" />
-    <Resource Include="Images\Color\15.jpg" />
-    <Resource Include="Images\Color\2.jpeg" />
-    <Resource Include="Images\Color\3.jpg" />
-    <Resource Include="Images\Color\4.jpeg" />
-    <Resource Include="Images\Color\5.jpeg" />
-    <Resource Include="Images\Color\6.jpeg" />
-    <Resource Include="Images\Color\7.jpeg" />
-    <Resource Include="Images\Color\8.jpeg" />
-    <Resource Include="Images\Color\9.jpeg" />
   </ItemGroup>
   <ItemGroup>
     <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
@@ -312,21 +296,6 @@
     <Resource Include="Images\7.jpeg" />
     <Resource Include="Images\8.jpeg" />
     <Resource Include="Images\9.jpeg" />
-    <Resource Include="Images\Black\1.jpg" />
-    <Resource Include="Images\Black\10.jpeg" />
-    <Resource Include="Images\Black\11.jpeg" />
-    <Resource Include="Images\Black\12.jpeg" />
-    <Resource Include="Images\Black\13.jpeg" />
-    <Resource Include="Images\Black\14.jpeg" />
-    <Resource Include="Images\Black\15.jpg" />
-    <Resource Include="Images\Black\2.jpeg" />
-    <Resource Include="Images\Black\3.jpg" />
-    <Resource Include="Images\Black\4.jpeg" />
-    <Resource Include="Images\Black\5.jpeg" />
-    <Resource Include="Images\Black\6.jpeg" />
-    <Resource Include="Images\Black\7.jpeg" />
-    <Resource Include="Images\Black\8.jpeg" />
-    <Resource Include="Images\Black\9.jpeg" />
   </ItemGroup>
   <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

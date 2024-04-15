@@ -35,13 +35,36 @@
             <Setter Property="FontSize" Value="30"/>
             <Setter Property="Foreground" Value="#51444c"/>
             <Setter Property="Background" Value="#eed4fe"/>
-            <Setter Property="BorderBrush" Value="#51444c"/>
             <Setter Property="BorderThickness" Value="2"/>
             <Setter Property="Template">
                 <Setter.Value>
                     <ControlTemplate TargetType="Button">
                         <Grid>
-                            <Border x:Name="border" BorderBrush="White" BorderThickness="1">
+                            <Border x:Name="border" BorderBrush="White" BorderThickness="1" CornerRadius="25">
+                                <ContentPresenter/>
+                            </Border>
+                        </Grid>
+                        <ControlTemplate.Triggers>
+                            <Trigger Property="IsPressed" Value="True">
+                                <Setter TargetName="border" Property="BorderBrush" Value="#d5c847"/>
+                            </Trigger>
+                        </ControlTemplate.Triggers>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
+
+        <Style TargetType="Button" x:Key="Button">
+            <Setter Property="FontFamily" Value="Comic Sans MS"/>
+            <Setter Property="FontSize" Value="30"/>
+            <Setter Property="Foreground" Value="#51444c"/>
+            <Setter Property="Background" Value="#eed4fe"/>
+            <Setter Property="BorderThickness" Value="2"/>
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="Button">
+                        <Grid>
+                            <Border x:Name="border" BorderBrush="Black" BorderThickness="1" CornerRadius="25">
                                 <ContentPresenter/>
                             </Border>
                         </Grid>
@@ -64,9 +87,10 @@
             <Setter Property="Template">
                 <Setter.Value>
                     <ControlTemplate TargetType="TextBox">
-                        <Border Name="OuterBorder" BorderBrush="{TemplateBinding BorderBrush}" BorderThickness="{TemplateBinding BorderThickness}">
+                        <Border Name="OuterBorder" CornerRadius="10"
+                                BorderBrush="{TemplateBinding BorderBrush}" BorderThickness="{TemplateBinding BorderThickness}">
                             <Grid>
-                                <ScrollViewer x:Name="PART_ContentHost" />
+                                <ScrollViewer x:Name="PART_ContentHost"/>
                             </Grid>
                         </Border>
                         <ControlTemplate.Triggers>
@@ -103,6 +127,13 @@
             <Setter Property="BorderThickness" Value="1"/>
         </Style>
 
+        <Style TargetType="Border" x:Key="TBlockBorder">
+            <Setter Property="BorderBrush" Value="#51444c"/>
+            <Setter Property="BorderThickness" Value="1"/>
+            <Setter Property="BorderThickness" Value="1"/>
+            <Setter Property="CornerRadius" Value="10"/>
+        </Style>
+
         <Style TargetType="ListView">
             <Setter Property="FontSize" Value="20"/>
             <Setter Property="Foreground" Value="#51444c"/>
@@ -133,8 +164,8 @@
                                     <ControlTemplate>
                                         <Grid>
                                             <Grid.ColumnDefinitions>
-                                                <ColumnDefinition Width="*" />
-                                                <ColumnDefinition Width="20" />
+                                                <ColumnDefinition Width="*"/>
+                                                <ColumnDefinition Width="20"/>
                                             </Grid.ColumnDefinitions>
                                             <Border Background="{TemplateBinding Background}" Grid.ColumnSpan="2" />
                                             <Path Fill="#51444c" HorizontalAlignment="Right" VerticalAlignment="Center" Data="M 0 0 L 4 4 L 8 0 Z" />
