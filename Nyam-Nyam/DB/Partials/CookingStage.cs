@@ -23,7 +23,6 @@ namespace Nyam_Nyam.DB
                     stepsWithNumbers.AppendFormat("{0}. {1}\n", stepNumber, cleanStep);
                     stepNumber++;
                 }
-
                 return stepsWithNumbers.ToString();
             }
         }

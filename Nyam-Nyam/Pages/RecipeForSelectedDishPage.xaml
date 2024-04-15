@@ -87,7 +87,8 @@
             <TextBlock Text="Short description: "/>
             <TextBlock x:Name="DescriptionTB"
                        TextWrapping="Wrap"
-                       Width="1100"/>
+                       Width="1100"
+                       FontSize="15"/>
         </StackPanel>
 
         <StackPanel Orientation="Horizontal"

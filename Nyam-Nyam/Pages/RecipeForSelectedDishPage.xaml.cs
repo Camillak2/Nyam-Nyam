@@ -40,6 +40,7 @@ namespace Nyam_Nyam.Pages
             contextDish = dish;
             InitializeDataInPage();
             this.DataContext = this;
+            CookingStage.stepNumber = 1;
             Refresh();
         }
 
